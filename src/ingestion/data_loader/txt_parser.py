@@ -1,6 +1,10 @@
 import os
 import sys
 import logfire
+
+
+
+
 def parse_text(file_path: str):
     with logfire.span("Text Parsing", filename=file_path):
         try:

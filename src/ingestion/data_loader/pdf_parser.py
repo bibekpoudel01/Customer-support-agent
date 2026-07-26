@@ -10,3 +10,5 @@ def parse_pdf_pymupdf(file_path: str) -> str:
         except Exception as e:
             logfire.error(f"Error parsing PDF file {file_path}: {e}")
             return ""
+
+        
