@@ -43,17 +43,5 @@ def create_semantic_chunks(documents: List[Document]) -> List[Document]:
         return []
     
 
-if __name__ == "__main__":
-    # Example usage
-    from pathlib import Path
-    from src.ingestion.data_loader.document_loader import load_documents
-
-    project_root = Path(__file__).resolve().parents[3]  
-    file_path = project_root / "DATA" / "true_data" / "product.json"
-
-    documents = load_documents([str(file_path)])
-    chunks = create_semantic_chunks(documents)
-    print(f"Created {len(chunks)} semantic chunks.")
-
 
 
