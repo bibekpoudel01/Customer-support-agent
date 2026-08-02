@@ -1,7 +1,7 @@
 import logfire
 from portkey_ai import Portkey, createHeaders, PORTKEY_GATEWAY_URL
 from langchain_openai import ChatOpenAI
-from src.config import settings,Config
+from src.config import settings
 
 GATEWAY_CONFIG = {
     "strategy": {"mode": "fallback"},

@@ -22,7 +22,7 @@ def _get_client():
     import redis
 
     _client = redis.Redis(
-        host=os.getenv("REDIS_HOST", "localhost"), # 'localhost' works with your local Docker container
+        host=os.getenv("REDIS_HOST", "localhost"), 
         port=int(os.getenv("REDIS_PORT", "6379")),
         socket_connect_timeout=2,
         socket_timeout=2,
