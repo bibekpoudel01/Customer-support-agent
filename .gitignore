@@ -1,0 +1,9 @@
+
+.venv/
+venv/
+.src/repo/sqlite/insert_data.sql
+.env
+.env/
+.env
+.practice.md
+.practice/

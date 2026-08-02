@@ -1,0 +1,1105 @@
+[
+  {
+    "product_id": 1,
+    "product_name": "Smart LED Bulb 9W",
+    "category": "Electronics > Smart Home",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A WiFi-enabled LED bulb that lets users control lighting color, brightness, and schedules from a smartphone or voice assistant.",
+    "detailed_description": "This smart bulb replaces standard fittings and connects directly to home WiFi, no hub required. Users can adjust brightness, switch between warm and cool white, or select from millions of colors through a companion app. It supports scheduling, scenes, and integration with voice assistants for hands-free control. Energy-efficient LED technology keeps power consumption low while offering a long operational lifespan, making it a practical upgrade for anyone automating their home lighting.",
+    "key_features": [
+      "WiFi connectivity, no hub needed",
+      "16 million color options with white tuning",
+      "Voice assistant compatible",
+      "Scheduling and scene automation",
+      "Energy-efficient, long lifespan"
+    ],
+    "specifications": {
+      "Wattage": "9W",
+      "Base Type": "E27",
+      "Lumens": "800lm",
+      "Lifespan": "25,000 hours",
+      "Connectivity": "WiFi 2.4GHz"
+    },
+    "ideal_use_case": "Best for homeowners starting a smart home setup who want easy lighting automation without installing extra hardware.",
+    "tags": "smart bulb, WiFi light, LED, smart home, voice control lighting"
+  },
+  {
+    "product_id": 2,
+    "product_name": "WiFi Smart Plug",
+    "category": "Electronics > Smart Home",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A compact plug that turns any regular appliance into a smart, remotely controllable device.",
+    "detailed_description": "The smart plug fits into a standard wall socket and connects any plugged-in appliance to the home WiFi network. Through a mobile app, users can turn devices on or off remotely, set timers, or monitor energy usage. It works well for lamps, fans, coffee makers, and other everyday appliances that lack built-in smart features, offering an affordable entry point into home automation.",
+    "key_features": [
+      "Remote on/off control via app",
+      "Timer and scheduling support",
+      "Energy usage monitoring",
+      "Voice assistant compatible",
+      "Compact, plug-and-play design"
+    ],
+    "specifications": {
+      "Max Load": "10A / 2300W",
+      "Connectivity": "WiFi 2.4GHz",
+      "Socket Type": "Universal",
+      "App Support": "iOS & Android"
+    },
+    "ideal_use_case": "Ideal for users wanting to automate non-smart appliances like lamps and fans without replacing them.",
+    "tags": "smart plug, WiFi outlet, home automation, remote control appliance"
+  },
+  {
+    "product_id": 3,
+    "product_name": "Robot Vacuum Cleaner",
+    "category": "Electronics > Home Appliance",
+    "brand": "[Brand Placeholder]",
+    "short_description": "An automated vacuum cleaner that navigates and cleans floors independently, ideal for busy households and pet owners.",
+    "detailed_description": "This robot vacuum uses smart sensors to map rooms, avoid obstacles, and clean efficiently across carpets, tiles, and hardwood floors. It offers app-based scheduling, automatic recharging, and can be controlled remotely. Designed for daily maintenance cleaning, it reduces manual vacuuming effort and works well in homes with pets due to its strong suction for pet hair.",
+    "key_features": [
+      "Smart room mapping and obstacle avoidance",
+      "App and voice control support",
+      "Automatic recharge and resume cleaning",
+      "Strong suction for pet hair and dust"
+    ],
+    "specifications": {
+      "Battery Life": "120 minutes",
+      "Dustbin Capacity": "0.6L",
+      "Noise Level": "65dB",
+      "Charging Time": "4 hours"
+    },
+    "ideal_use_case": "Best suited for apartments and homes with pets or busy schedules needing consistent daily floor cleaning.",
+    "tags": "robot vacuum, automatic cleaning, smart home, pet hair vacuum"
+  },
+  {
+    "product_id": 4,
+    "product_name": "Electric Kettle 1.5L",
+    "category": "Electronics > Kitchen Appliance",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A fast-boiling electric kettle with auto shut-off, designed for everyday tea, coffee, and hot water needs.",
+    "detailed_description": "This electric kettle heats water quickly using a concealed heating element, reducing boil time compared to stovetop methods. It includes an auto shut-off feature that turns the kettle off once water reaches boiling point, preventing dry boiling and overheating. The cordless base allows easy pouring, and the see-through water level indicator helps avoid overfilling. Suitable for daily use in homes, offices, and small kitchens.",
+    "key_features": [
+      "Fast boiling concealed heating element",
+      "Auto shut-off and boil-dry protection",
+      "Cordless 360-degree base",
+      "Water level indicator"
+    ],
+    "specifications": {
+      "Capacity": "1.5L",
+      "Power": "1500W",
+      "Material": "Stainless steel body",
+      "Cord Length": "0.75m"
+    },
+    "ideal_use_case": "Great for individuals or small families needing quick hot water for tea, coffee, or instant food.",
+    "tags": "electric kettle, water boiler, kitchen appliance, auto shut-off kettle"
+  },
+  {
+    "product_id": 5,
+    "product_name": "Air Fryer 4L",
+    "category": "Electronics > Kitchen Appliance",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A countertop air fryer that cooks crispy food using rapid hot-air circulation with little to no oil.",
+    "detailed_description": "This air fryer circulates hot air at high speed around food to create a crispy exterior similar to deep frying, using significantly less oil. It comes with adjustable temperature and timer controls, making it suitable for frying, roasting, grilling, and reheating. The non-stick, removable basket simplifies cleaning, and the compact design fits easily on most kitchen counters, making healthier cooking more convenient for everyday meals.",
+    "key_features": [
+      "Rapid hot-air circulation technology",
+      "Adjustable temperature and timer",
+      "Removable non-stick basket",
+      "Multi-function: fry, roast, grill, reheat"
+    ],
+    "specifications": {
+      "Capacity": "4L",
+      "Power": "1400W",
+      "Temperature Range": "80°C - 200°C",
+      "Timer": "Up to 60 minutes"
+    },
+    "ideal_use_case": "Ideal for health-conscious households wanting to reduce oil usage while still enjoying fried-style food.",
+    "tags": "air fryer, healthy cooking, oil-free frying, kitchen appliance"
+  },
+  {
+    "product_id": 6,
+    "product_name": "Microwave Oven 20L",
+    "category": "Electronics > Kitchen Appliance",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A compact 20L microwave oven for reheating, defrosting, and basic cooking tasks.",
+    "detailed_description": "This microwave oven offers multiple power levels and preset functions for common cooking tasks like reheating leftovers, defrosting frozen food, and preparing simple meals. Its digital control panel makes selecting programs straightforward, and the interior is sized to accommodate standard dinner plates and bowls. A practical option for small kitchens, dorms, or as a secondary appliance in larger households.",
+    "key_features": [
+      "Multiple power levels",
+      "Preset cooking and defrost functions",
+      "Digital control panel with timer",
+      "Child safety lock"
+    ],
+    "specifications": {
+      "Capacity": "20L",
+      "Power": "800W",
+      "Control Type": "Digital",
+      "Turntable": "Yes"
+    },
+    "ideal_use_case": "Suited for small households, students, or offices needing quick reheating and basic cooking.",
+    "tags": "microwave oven, kitchen appliance, reheating, defrosting"
+  },
+  {
+    "product_id": 7,
+    "product_name": "Induction Cooktop",
+    "category": "Electronics > Kitchen Appliance",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A portable induction cooktop offering fast, precise, and energy-efficient cooking without an open flame.",
+    "detailed_description": "This induction cooktop uses electromagnetic energy to heat cookware directly, resulting in faster cooking and better temperature control than traditional gas or electric coils. Since it doesn't generate an open flame, it's a safer option for compact kitchens and doesn't heat up the surrounding air as much. It includes multiple preset cooking modes and adjustable power levels, and works with compatible induction-ready cookware.",
+    "key_features": [
+      "Electromagnetic fast heating",
+      "Multiple preset cooking modes",
+      "Touch control panel with digital display",
+      "Auto shut-off and overheat protection"
+    ],
+    "specifications": {
+      "Power": "2000W",
+      "Voltage": "220-240V",
+      "Cookware Compatibility": "Induction-base only",
+      "Timer": "Up to 3 hours"
+    },
+    "ideal_use_case": "Good for small kitchens, rentals, or as a backup cooking surface where gas connections aren't available.",
+    "tags": "induction cooktop, portable stove, energy-efficient cooking"
+  },
+  {
+    "product_id": 8,
+    "product_name": "Mixer Grinder 750W",
+    "category": "Electronics > Kitchen Appliance",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A multi-jar mixer grinder designed for grinding, blending, and making chutneys and batters at home.",
+    "detailed_description": "This mixer grinder comes with multiple jars for different tasks such as wet grinding, dry grinding, and blending. Its powerful motor handles everyday kitchen tasks like preparing batters, chutneys, and spice mixes efficiently. Stainless steel blades are designed for durability, and the compact base unit is easy to store. A staple appliance for households that cook frequently from scratch.",
+    "key_features": [
+      "750W high-torque motor",
+      "Multiple jars for wet/dry/chutney grinding",
+      "Stainless steel blades",
+      "3-speed control with pulse function"
+    ],
+    "specifications": {
+      "Power": "750W",
+      "Jars Included": "3",
+      "Material": "ABS body, stainless steel jars",
+      "Warranty": "2 years"
+    },
+    "ideal_use_case": "Essential for households that regularly prepare fresh batters, chutneys, and spice blends.",
+    "tags": "mixer grinder, kitchen appliance, blending, grinding"
+  },
+  {
+    "product_id": 9,
+    "product_name": "Refrigerator 250L",
+    "category": "Electronics > Large Appliance",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A mid-sized double-door refrigerator suitable for small to medium families, balancing storage and energy efficiency.",
+    "detailed_description": "This refrigerator offers a double-door design with a separate freezer compartment, providing organized storage for fresh and frozen food. It uses energy-efficient cooling technology to maintain consistent temperatures while keeping electricity consumption in check. Adjustable shelves and door bins allow flexible storage for bottles, vegetables, and containers, making it a practical choice for everyday household use.",
+    "key_features": [
+      "Double-door with separate freezer",
+      "Energy-efficient cooling",
+      "Adjustable shelves and door bins",
+      "Frost-free operation"
+    ],
+    "specifications": {
+      "Capacity": "250L",
+      "Energy Rating": "3 Star",
+      "Defrost Type": "Frost-free",
+      "Warranty": "1 year (10 years compressor)"
+    },
+    "ideal_use_case": "Well-suited for small to medium families needing reliable, everyday food storage.",
+    "tags": "refrigerator, fridge, double door, home appliance"
+  },
+  {
+    "product_id": 10,
+    "product_name": "Washing Machine 7kg",
+    "category": "Electronics > Large Appliance",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A fully automatic front-load washing machine designed for efficient, gentle washing of everyday laundry loads.",
+    "detailed_description": "This washing machine automates the entire wash cycle from filling to spinning, requiring minimal manual intervention. It offers multiple wash programs tailored to different fabric types, along with adjustable water temperature and spin speed. The front-load design is gentler on clothes and generally more water-efficient than top-load alternatives, making it suitable for households seeking convenience and fabric care.",
+    "key_features": [
+      "Fully automatic front-load design",
+      "Multiple wash programs for fabric types",
+      "Adjustable spin speed and water temperature",
+      "Delay start and child lock"
+    ],
+    "specifications": {
+      "Capacity": "7kg",
+      "Type": "Front Load",
+      "Spin Speed": "1200 RPM",
+      "Energy Rating": "4 Star"
+    },
+    "ideal_use_case": "Suitable for small to medium families wanting an automated, fabric-friendly washing solution.",
+    "tags": "washing machine, front load, laundry appliance, home appliance"
+  },
+  {
+    "product_id": 11,
+    "product_name": "Split AC 1.5 Ton",
+    "category": "Electronics > Climate Control",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A 1.5-ton split air conditioner suitable for cooling medium-sized rooms efficiently and quietly.",
+    "detailed_description": "This split air conditioner separates the indoor unit from the outdoor compressor, allowing quieter indoor operation and efficient cooling for rooms up to roughly 150-180 square feet. It includes multiple cooling modes, adjustable fan speeds, and a remote control for convenient operation. Energy-saving technology helps regulate power consumption during extended use, making it suitable for bedrooms, living rooms, and home offices.",
+    "key_features": [
+      "1.5 Ton cooling capacity",
+      "Multiple cooling and fan modes",
+      "Remote control operation",
+      "Energy-saving compressor technology"
+    ],
+    "specifications": {
+      "Capacity": "1.5 Ton",
+      "Energy Rating": "3 Star",
+      "Refrigerant": "R32",
+      "Noise Level": "38dB (indoor)"
+    },
+    "ideal_use_case": "Ideal for cooling medium-sized bedrooms or living rooms in hot climates.",
+    "tags": "split AC, air conditioner, room cooling, climate control"
+  },
+  {
+    "product_id": 12,
+    "product_name": "Tower Fan",
+    "category": "Electronics > Climate Control",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A slim, space-saving tower fan offering oscillating airflow with multiple speed settings.",
+    "detailed_description": "This tower fan provides a compact, vertical design that takes up minimal floor space while delivering wide-area airflow through oscillation. It includes multiple speed settings and often a remote control for convenience, along with a timer function for automatic shut-off. The enclosed blade design makes it safer around children and pets compared to traditional fans, making it a practical cooling option for bedrooms and living spaces.",
+    "key_features": [
+      "Slim, space-saving vertical design",
+      "Oscillating wide-area airflow",
+      "Multiple speed settings with timer",
+      "Remote control included"
+    ],
+    "specifications": {
+      "Height": "100cm",
+      "Power": "45W",
+      "Speed Settings": "3",
+      "Timer": "Up to 7.5 hours"
+    },
+    "ideal_use_case": "Good for bedrooms and living rooms where floor space is limited but consistent airflow is needed.",
+    "tags": "tower fan, oscillating fan, room cooling, space-saving fan"
+  },
+  {
+    "product_id": 13,
+    "product_name": "Room Heater",
+    "category": "Electronics > Climate Control",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A portable electric room heater designed to quickly warm small to medium-sized spaces during cold weather.",
+    "detailed_description": "This room heater uses electric heating elements to warm enclosed spaces quickly, making it suitable for bedrooms, study rooms, or home offices during winter months. It typically includes adjustable heat settings, tip-over protection, and overheat safety cutoff to ensure safe operation. The compact and lightweight design allows it to be moved easily between rooms as needed.",
+    "key_features": [
+      "Fast electric heating",
+      "Adjustable heat settings",
+      "Tip-over and overheat protection",
+      "Compact, portable design"
+    ],
+    "specifications": {
+      "Power": "2000W",
+      "Coverage Area": "Up to 150 sq ft",
+      "Safety Features": "Auto cutoff, tip-over switch",
+      "Weight": "2.5kg"
+    },
+    "ideal_use_case": "Useful for individuals in cold climates needing quick, localized heating for a single room.",
+    "tags": "room heater, electric heater, winter appliance, portable heater"
+  },
+  {
+    "product_id": 14,
+    "product_name": "Air Purifier",
+    "category": "Electronics > Climate Control",
+    "brand": "[Brand Placeholder]",
+    "short_description": "An air purifier with HEPA filtration designed to reduce dust, allergens, and airborne pollutants indoors.",
+    "detailed_description": "This air purifier uses multi-stage filtration, including a HEPA filter, to capture fine particles such as dust, pollen, smoke, and pet dander from indoor air. It's designed for continuous operation with adjustable fan speeds and often includes an air quality indicator that shows real-time pollution levels. Particularly useful for households in high-pollution areas or for individuals with allergies or respiratory sensitivities.",
+    "key_features": [
+      "Multi-stage HEPA filtration",
+      "Real-time air quality indicator",
+      "Adjustable fan speed settings",
+      "Quiet operation mode for night use"
+    ],
+    "specifications": {
+      "Coverage Area": "Up to 300 sq ft",
+      "Filter Type": "HEPA + Activated Carbon",
+      "CADR": "300 m³/h",
+      "Noise Level": "20-55dB"
+    },
+    "ideal_use_case": "Recommended for allergy sufferers or households in areas with high air pollution or dust levels.",
+    "tags": "air purifier, HEPA filter, indoor air quality, allergen reduction"
+  },
+  {
+    "product_id": 15,
+    "product_name": "Ceiling Fan",
+    "category": "Electronics > Climate Control",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A standard ceiling fan providing consistent airflow for everyday room ventilation and cooling.",
+    "detailed_description": "This ceiling fan is designed for continuous, energy-efficient air circulation in living rooms, bedrooms, and other indoor spaces. It features aerodynamically designed blades for optimized airflow and a powerful motor that operates quietly even at high speeds. Available with standard pull-chain or remote-compatible variants, it remains a cost-effective solution for everyday home cooling.",
+    "key_features": [
+      "Aerodynamic blade design",
+      "Multiple speed settings",
+      "Quiet motor operation",
+      "Energy-efficient consumption"
+    ],
+    "specifications": {
+      "Sweep Size": "1200mm",
+      "Power": "75W",
+      "Speed": "350 RPM",
+      "Blade Count": "3"
+    },
+    "ideal_use_case": "A standard, budget-friendly cooling solution for any room in the house.",
+    "tags": "ceiling fan, room cooling, home appliance, ventilation"
+  },
+  {
+    "product_id": 16,
+    "product_name": "LED TV 43-inch",
+    "category": "Electronics > Entertainment",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A 43-inch smart LED TV offering full HD picture quality with built-in streaming app support.",
+    "detailed_description": "This LED TV combines a full HD display with smart functionality, allowing direct access to popular streaming apps without needing an external device. It supports WiFi connectivity, multiple HDMI and USB ports, and often includes voice remote support. The slim design and decent viewing angles make it suitable as a primary living room television or a secondary screen in bedrooms.",
+    "key_features": [
+      "Full HD smart display",
+      "Built-in streaming app support",
+      "Multiple HDMI/USB ports",
+      "Voice remote compatible"
+    ],
+    "specifications": {
+      "Screen Size": "43 inch",
+      "Resolution": "1920x1080 (Full HD)",
+      "Connectivity": "WiFi, Bluetooth",
+      "Ports": "3 HDMI, 2 USB"
+    },
+    "ideal_use_case": "Suitable as a primary or secondary TV for households wanting smart streaming without extra devices.",
+    "tags": "LED TV, smart TV, home entertainment, full HD television"
+  },
+  {
+    "product_id": 17,
+    "product_name": "Soundbar 2.1 Channel",
+    "category": "Electronics > Entertainment",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A 2.1 channel soundbar with wireless subwoofer designed to enhance TV audio with deeper bass.",
+    "detailed_description": "This soundbar improves on built-in TV speakers by delivering clearer dialogue and richer bass through its paired wireless subwoofer. It connects easily via HDMI ARC, optical, or Bluetooth, making it compatible with most modern televisions. Multiple sound modes optimize audio for movies, music, or news, offering a noticeable upgrade in home entertainment audio without the complexity of a full surround system.",
+    "key_features": [
+      "2.1 channel with wireless subwoofer",
+      "HDMI ARC, optical, and Bluetooth connectivity",
+      "Multiple sound modes",
+      "Compact soundbar design"
+    ],
+    "specifications": {
+      "Output Power": "120W",
+      "Channels": "2.1",
+      "Connectivity": "HDMI ARC, Optical, Bluetooth",
+      "Subwoofer": "Wireless"
+    },
+    "ideal_use_case": "Great for home entertainment setups wanting improved TV audio without a full surround sound system.",
+    "tags": "soundbar, home theater, TV audio, wireless subwoofer"
+  },
+  {
+    "product_id": 18,
+    "product_name": "Bluetooth Speaker",
+    "category": "Electronics > Entertainment",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A portable Bluetooth speaker with rich sound output, designed for indoor and outdoor use.",
+    "detailed_description": "This portable speaker connects wirelessly via Bluetooth to phones, tablets, or laptops, delivering balanced sound with decent bass output for its size. Built with a durable, often water-resistant casing, it's suitable for use by the pool, at gatherings, or simply around the house. Long battery life supports extended playback, and many models include hands-free calling functionality.",
+    "key_features": [
+      "Wireless Bluetooth connectivity",
+      "Water-resistant durable build",
+      "Long battery life for extended playback",
+      "Hands-free calling support"
+    ],
+    "specifications": {
+      "Battery Life": "12 hours",
+      "Output Power": "20W",
+      "Water Resistance": "IPX6",
+      "Connectivity": "Bluetooth 5.0"
+    },
+    "ideal_use_case": "Ideal for casual listening at home, outdoor gatherings, or travel.",
+    "tags": "Bluetooth speaker, portable speaker, wireless audio, outdoor speaker"
+  },
+  {
+    "product_id": 19,
+    "product_name": "Wireless Earbuds",
+    "category": "Electronics > Audio",
+    "brand": "[Brand Placeholder]",
+    "short_description": "True wireless earbuds offering compact design, touch controls, and a portable charging case.",
+    "detailed_description": "These true wireless earbuds provide a cable-free listening experience with touch-based controls for playback and calls. The compact charging case extends total listening time significantly beyond the earbuds' individual battery life, making them convenient for daily commuting, workouts, or calls. Many models include passive noise isolation and quick-pairing technology for ease of use across devices.",
+    "key_features": [
+      "True wireless design with charging case",
+      "Touch controls for playback and calls",
+      "Quick-pairing Bluetooth technology",
+      "Sweat and splash resistance"
+    ],
+    "specifications": {
+      "Battery Life": "6 hours (24 hours with case)",
+      "Connectivity": "Bluetooth 5.2",
+      "Water Resistance": "IPX4",
+      "Charging": "USB-C, fast charge"
+    },
+    "ideal_use_case": "Suited for daily commuting, workouts, and hands-free calling on the go.",
+    "tags": "wireless earbuds, TWS, Bluetooth earphones, portable audio"
+  },
+  {
+    "product_id": 20,
+    "product_name": "Over-Ear Headphones",
+    "category": "Electronics > Audio",
+    "brand": "[Brand Placeholder]",
+    "short_description": "Over-ear wireless headphones offering immersive sound with padded comfort for extended listening.",
+    "detailed_description": "These over-ear headphones are designed for extended listening comfort with cushioned ear cups and an adjustable headband. They offer wireless Bluetooth playback along with a wired option for compatibility with non-Bluetooth devices. Enhanced bass response and noise isolation from the closed-back design make them suitable for music, calls, and casual gaming alike.",
+    "key_features": [
+      "Wireless and wired connectivity options",
+      "Padded ear cups for extended comfort",
+      "Enhanced bass audio profile",
+      "Foldable design for portability"
+    ],
+    "specifications": {
+      "Battery Life": "20 hours",
+      "Driver Size": "40mm",
+      "Connectivity": "Bluetooth 5.0, 3.5mm jack",
+      "Weight": "220g"
+    },
+    "ideal_use_case": "Good for users who want long listening sessions at home or during travel with reliable comfort.",
+    "tags": "over-ear headphones, wireless headphones, audio, music headset"
+  },
+  {
+    "product_id": 21,
+    "product_name": "Smartphone (Mid-range)",
+    "category": "Electronics > Mobile",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A mid-range smartphone balancing performance, camera quality, and battery life for everyday use.",
+    "detailed_description": "This smartphone offers a well-rounded feature set suitable for daily tasks including browsing, social media, photography, and light gaming. It includes a multi-camera setup for varied photography needs, a large battery for all-day use, and a display suited for media consumption. The processor handles everyday multitasking smoothly without the premium price tag of flagship devices.",
+    "key_features": [
+      "Multi-camera setup for varied photography",
+      "Large battery with fast charging",
+      "Smooth everyday performance",
+      "Expandable storage support"
+    ],
+    "specifications": {
+      "Display": "6.5 inch FHD+",
+      "RAM/Storage": "8GB/128GB",
+      "Battery": "5000mAh",
+      "Camera": "50MP triple rear camera"
+    },
+    "ideal_use_case": "Suited for everyday users wanting reliable performance without paying flagship prices.",
+    "tags": "smartphone, mid-range phone, mobile device, Android phone"
+  },
+  {
+    "product_id": 22,
+    "product_name": "Smartwatch",
+    "category": "Electronics > Wearable",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A feature-rich smartwatch that tracks fitness, displays notifications, and monitors health metrics.",
+    "detailed_description": "This smartwatch pairs with smartphones to display calls, messages, and app notifications directly on the wrist. It includes health-tracking sensors for heart rate, sleep, and activity monitoring, along with multiple sport modes for workout tracking. A long-lasting battery and always-visible display make it practical for continuous daily wear, appealing to fitness-conscious users and those wanting reduced phone dependency.",
+    "key_features": [
+      "Notification and call alerts on wrist",
+      "Heart rate and sleep tracking",
+      "Multiple sport and workout modes",
+      "Multi-day battery life"
+    ],
+    "specifications": {
+      "Display": "1.4 inch AMOLED",
+      "Battery Life": "Up to 7 days",
+      "Water Resistance": "5 ATM",
+      "Connectivity": "Bluetooth 5.0"
+    },
+    "ideal_use_case": "Ideal for fitness-focused individuals who want health tracking and notifications without checking their phone constantly.",
+    "tags": "smartwatch, fitness tracker, wearable tech, health monitor"
+  },
+  {
+    "product_id": 23,
+    "product_name": "Fitness Band",
+    "category": "Electronics > Wearable",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A lightweight fitness band focused on step tracking, heart rate monitoring, and basic notifications.",
+    "detailed_description": "This fitness band is a slimmer, more affordable alternative to a full smartwatch, focused primarily on activity and health tracking. It monitors steps, distance, calories burned, and heart rate throughout the day, while also displaying basic call and message notifications. Its lightweight design and long battery life make it comfortable for continuous, all-day wear, including during sleep tracking.",
+    "key_features": [
+      "Step and calorie tracking",
+      "Continuous heart rate monitoring",
+      "Sleep tracking",
+      "Lightweight, all-day wearable design"
+    ],
+    "specifications": {
+      "Display": "1.1 inch AMOLED",
+      "Battery Life": "Up to 14 days",
+      "Water Resistance": "IP68",
+      "Weight": "22g"
+    },
+    "ideal_use_case": "Good for users wanting basic fitness and health tracking in a lightweight, budget-friendly form.",
+    "tags": "fitness band, activity tracker, wearable, step counter"
+  },
+  {
+    "product_id": 24,
+    "product_name": "Laptop 15.6-inch",
+    "category": "Electronics > Computing",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A 15.6-inch laptop suited for everyday productivity, browsing, and light multitasking.",
+    "detailed_description": "This laptop is designed for general-purpose computing tasks such as document editing, web browsing, video calls, and media consumption. Its balanced hardware configuration handles everyday multitasking smoothly, while the full-size keyboard and large display support comfortable extended use. Suitable for students, remote workers, and households needing a reliable everyday computer.",
+    "key_features": [
+      "Full-size backlit keyboard",
+      "Balanced processor for daily multitasking",
+      "Large 15.6-inch display",
+      "Multiple ports including USB-C and HDMI"
+    ],
+    "specifications": {
+      "Display": "15.6 inch FHD",
+      "RAM/Storage": "8GB/512GB SSD",
+      "Battery Life": "Up to 8 hours",
+      "OS": "Pre-installed OS"
+    },
+    "ideal_use_case": "Suitable for students and remote workers needing a dependable everyday laptop.",
+    "tags": "laptop, computer, productivity laptop, everyday computing"
+  },
+  {
+    "product_id": 25,
+    "product_name": "Wireless Mouse",
+    "category": "Electronics > Computing Accessory",
+    "brand": "[Brand Placeholder]",
+    "short_description": "An ergonomic wireless mouse offering smooth cursor control and long battery life for daily computer use.",
+    "detailed_description": "This wireless mouse connects via a USB receiver or Bluetooth, eliminating cable clutter on the desk. Its ergonomic shape supports comfortable use during extended work sessions, while an optical sensor ensures precise cursor tracking across most surfaces. Low power consumption allows the mouse to run for months on a single battery charge, making it a practical accessory for laptops and desktops alike.",
+    "key_features": [
+      "Wireless USB receiver or Bluetooth connectivity",
+      "Ergonomic comfortable design",
+      "Precise optical tracking",
+      "Long battery life"
+    ],
+    "specifications": {
+      "Connectivity": "2.4GHz wireless / Bluetooth",
+      "DPI": "1600",
+      "Battery Life": "Up to 12 months",
+      "Buttons": "3"
+    },
+    "ideal_use_case": "A practical everyday accessory for laptop and desktop users wanting cable-free convenience.",
+    "tags": "wireless mouse, computer accessory, ergonomic mouse"
+  },
+  {
+    "product_id": 26,
+    "product_name": "Mechanical Keyboard",
+    "category": "Electronics > Computing Accessory",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A mechanical keyboard offering tactile key feedback and durability for typing, gaming, and productivity.",
+    "detailed_description": "This mechanical keyboard uses individual mechanical switches under each key, providing tactile feedback and a satisfying typing experience compared to standard membrane keyboards. Built for durability, it withstands high usage over time and often includes customizable backlighting. Suitable for gamers, programmers, and anyone who types extensively and values responsive, comfortable keystrokes.",
+    "key_features": [
+      "Mechanical switches for tactile feedback",
+      "Customizable RGB backlighting",
+      "Durable build for heavy daily use",
+      "Anti-ghosting key support"
+    ],
+    "specifications": {
+      "Switch Type": "Mechanical blue/red switches",
+      "Connectivity": "USB wired / Wireless",
+      "Backlighting": "RGB",
+      "Key Layout": "Full-size"
+    },
+    "ideal_use_case": "Ideal for gamers, writers, and programmers who type frequently and want responsive key feedback.",
+    "tags": "mechanical keyboard, gaming keyboard, RGB keyboard, computer accessory"
+  },
+  {
+    "product_id": 27,
+    "product_name": "Power Bank 20000mAh",
+    "category": "Electronics > Accessory",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A high-capacity power bank capable of charging phones and small devices multiple times on a single charge.",
+    "detailed_description": "This power bank offers a large battery capacity suitable for charging smartphones multiple times or tablets and other devices at least once before needing a recharge. It supports fast charging on both input and output, reducing the time needed to recharge the power bank itself and the connected device. Multiple output ports allow charging more than one device simultaneously, making it a useful travel and everyday backup accessory.",
+    "key_features": [
+      "20000mAh high-capacity battery",
+      "Fast charging input and output",
+      "Multiple device ports",
+      "LED battery level indicator"
+    ],
+    "specifications": {
+      "Capacity": "20000mAh",
+      "Output": "18W Fast Charge",
+      "Ports": "2 USB-A, 1 USB-C",
+      "Weight": "400g"
+    },
+    "ideal_use_case": "Useful for travelers and daily commuters who need reliable backup charging on the go.",
+    "tags": "power bank, portable charger, battery backup, fast charging"
+  },
+  {
+    "product_id": 28,
+    "product_name": "USB-C Charging Cable",
+    "category": "Electronics > Accessory",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A durable USB-C charging and data cable compatible with a wide range of modern devices.",
+    "detailed_description": "This USB-C cable supports both fast charging and data transfer, compatible with smartphones, tablets, laptops, and other USB-C enabled devices. Reinforced connectors and braided cabling improve durability against everyday wear from bending and coiling. A dependable, replaceable accessory for anyone needing reliable charging cables at home, office, or while traveling.",
+    "key_features": [
+      "Fast charging and data transfer support",
+      "Braided, durable cable design",
+      "Reinforced connector heads",
+      "Wide device compatibility"
+    ],
+    "specifications": {
+      "Length": "1m",
+      "Charging Speed": "Up to 60W",
+      "Data Transfer": "480Mbps",
+      "Connector": "USB-C to USB-C / USB-A"
+    },
+    "ideal_use_case": "A reliable replacement or spare charging cable for everyday USB-C devices.",
+    "tags": "USB-C cable, charging cable, fast charging cable, accessory"
+  },
+  {
+    "product_id": 29,
+    "product_name": "Wall Charger 65W",
+    "category": "Electronics > Accessory",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A compact 65W wall charger capable of fast-charging laptops, tablets, and smartphones.",
+    "detailed_description": "This wall charger delivers up to 65W of power, making it suitable for fast-charging not just smartphones but also many laptops and tablets that support USB-C power delivery. Its compact, foldable-plug design makes it convenient for travel, while built-in safety features protect against overcurrent and overheating during use.",
+    "key_features": [
+      "65W fast charging output",
+      "Compatible with laptops, tablets, phones",
+      "Compact, travel-friendly design",
+      "Overcurrent and overheat protection"
+    ],
+    "specifications": {
+      "Output": "65W USB-C PD",
+      "Input Voltage": "100-240V",
+      "Ports": "1 USB-C",
+      "Weight": "120g"
+    },
+    "ideal_use_case": "Convenient for users who want one charger for multiple device types, especially while traveling.",
+    "tags": "wall charger, fast charger, USB-C power adapter, accessory"
+  },
+  {
+    "product_id": 30,
+    "product_name": "External Hard Drive 1TB",
+    "category": "Electronics > Storage",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A portable 1TB external hard drive for backing up files, photos, and documents outside the main device.",
+    "detailed_description": "This external hard drive provides ample storage for backing up important files, photos, videos, and documents separate from a computer's internal storage. Its plug-and-play USB connectivity works across most operating systems without additional drivers. The compact, durable casing makes it suitable for carrying between home, office, or while traveling, serving as a reliable backup and file-transfer solution.",
+    "key_features": [
+      "1TB storage capacity",
+      "Plug-and-play USB connectivity",
+      "Compact, portable design",
+      "Cross-platform compatibility"
+    ],
+    "specifications": {
+      "Capacity": "1TB",
+      "Interface": "USB 3.0",
+      "Transfer Speed": "Up to 120MB/s",
+      "Weight": "180g"
+    },
+    "ideal_use_case": "Useful for anyone needing reliable offline backup of important digital files and media.",
+    "tags": "external hard drive, storage device, file backup, portable HDD"
+  },
+  {
+    "product_id": 31,
+    "product_name": "Pen Drive 64GB",
+    "category": "Electronics > Storage",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A compact 64GB USB pen drive for quick file transfer and portable storage.",
+    "detailed_description": "This pen drive offers convenient, pocket-sized storage for transferring files between computers or storing documents, photos, and media on the go. Its plug-and-play design requires no additional software, and the compact form factor makes it easy to carry on a keychain or in a bag. A practical, affordable accessory for students, professionals, and everyday computer users.",
+    "key_features": [
+      "64GB storage capacity",
+      "Plug-and-play USB connectivity",
+      "Compact, keychain-friendly design",
+      "Wide device compatibility"
+    ],
+    "specifications": {
+      "Capacity": "64GB",
+      "Interface": "USB 3.0",
+      "Transfer Speed": "Up to 80MB/s",
+      "Body Material": "Metal/Plastic"
+    },
+    "ideal_use_case": "Great for students and professionals needing quick, portable file transfer.",
+    "tags": "pen drive, USB flash drive, portable storage, file transfer"
+  },
+  {
+    "product_id": 32,
+    "product_name": "Wi-Fi Router",
+    "category": "Electronics > Networking",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A dual-band WiFi router providing stable wireless internet coverage for homes and small offices.",
+    "detailed_description": "This WiFi router broadcasts dual-band wireless signals to reduce congestion and improve connection stability across multiple connected devices. It supports standard home networking needs including streaming, video calls, and gaming, with settings accessible through a simple web or app-based interface. Multiple LAN ports allow wired connections for devices needing more stable connectivity, such as desktop computers or smart TVs.",
+    "key_features": [
+      "Dual-band WiFi for reduced congestion",
+      "Multiple LAN ports for wired devices",
+      "App-based network management",
+      "Parental control and guest network support"
+    ],
+    "specifications": {
+      "WiFi Standard": "WiFi 5 (802.11ac)",
+      "Bands": "2.4GHz + 5GHz",
+      "LAN Ports": "4",
+      "Coverage Area": "Up to 1500 sq ft"
+    },
+    "ideal_use_case": "Suitable for homes and small offices needing stable, whole-space WiFi coverage.",
+    "tags": "WiFi router, wireless internet, home networking, dual-band router"
+  },
+  {
+    "product_id": 33,
+    "product_name": "Extension Board",
+    "category": "Electronics > Electrical",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A multi-socket extension board with surge protection for safely powering multiple devices from one outlet.",
+    "detailed_description": "This extension board expands a single wall outlet into multiple sockets, allowing several devices to be powered simultaneously. Built-in surge protection helps guard connected electronics against voltage spikes, while an individual switch per socket allows convenient control without unplugging devices. A practical accessory for home offices, entertainment setups, or any area with multiple electronic devices.",
+    "key_features": [
+      "Multiple sockets with individual switches",
+      "Built-in surge protection",
+      "Durable, fire-resistant casing",
+      "Extended cord length"
+    ],
+    "specifications": {
+      "Sockets": "6",
+      "Cord Length": "3m",
+      "Max Load": "10A",
+      "Surge Protection": "Yes"
+    },
+    "ideal_use_case": "Useful for home offices and entertainment centers with multiple devices needing power.",
+    "tags": "extension board, power strip, surge protector, electrical accessory"
+  },
+  {
+    "product_id": 34,
+    "product_name": "Inverter with Battery",
+    "category": "Electronics > Power Backup",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A home inverter and battery system providing automatic power backup during electricity outages.",
+    "detailed_description": "This inverter system detects power outages and automatically switches to battery backup, keeping essential home appliances like lights, fans, and routers running without interruption. It includes a battery charging unit that recharges automatically once main power is restored. Designed for areas with frequent power cuts, it provides a dependable backup solution for households and small offices.",
+    "key_features": [
+      "Automatic power backup switching",
+      "Battery auto-recharge functionality",
+      "Overload and short-circuit protection",
+      "Digital display for battery status"
+    ],
+    "specifications": {
+      "Capacity": "850VA",
+      "Battery Type": "Tubular",
+      "Backup Time": "3-4 hours (typical load)",
+      "Charging Time": "8-10 hours"
+    },
+    "ideal_use_case": "Essential for households in areas experiencing frequent power outages.",
+    "tags": "inverter, power backup, battery backup, home electrical"
+  },
+  {
+    "product_id": 35,
+    "product_name": "Water Purifier (RO)",
+    "category": "Electronics > Home Appliance",
+    "brand": "[Brand Placeholder]",
+    "short_description": "An RO water purifier that removes contaminants and delivers clean, safe drinking water for the home.",
+    "detailed_description": "This water purifier uses reverse osmosis (RO) technology combined with additional filtration stages to remove dissolved impurities, bacteria, and contaminants from tap or borewell water. It's designed for continuous household use, with a storage tank that keeps purified water ready for consumption. Suitable for areas with varying water quality, it provides a consistent supply of safe drinking water.",
+    "key_features": [
+      "Multi-stage RO + UV/UF purification",
+      "Storage tank for ready-to-use water",
+      "Removes dissolved salts and contaminants",
+      "Filter change indicator"
+    ],
+    "specifications": {
+      "Purification Capacity": "15L/hour",
+      "Storage Tank": "8L",
+      "Stages": "7-stage purification",
+      "Power": "60W"
+    },
+    "ideal_use_case": "Recommended for households with hard water or inconsistent municipal water quality.",
+    "tags": "water purifier, RO purifier, drinking water, home appliance"
+  },
+  {
+    "product_id": 36,
+    "product_name": "Vacuum Cleaner (Handheld)",
+    "category": "Electronics > Home Appliance",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A lightweight handheld vacuum cleaner suited for quick cleanups of small messes and tight spaces.",
+    "detailed_description": "This handheld vacuum cleaner is designed for spot cleaning rather than whole-room vacuuming, making it ideal for car interiors, upholstery, and small spills. Its compact, cordless or corded design allows easy maneuvering into tight corners and crevices that larger vacuums can't reach. A washable filter and easy-empty dust cup simplify maintenance after use.",
+    "key_features": [
+      "Lightweight, compact design",
+      "Suitable for tight spaces and upholstery",
+      "Washable filter",
+      "Easy-empty dust cup"
+    ],
+    "specifications": {
+      "Power": "600W",
+      "Weight": "1.2kg",
+      "Cord Length": "5m (corded) or battery-powered",
+      "Dust Cup Capacity": "0.5L"
+    },
+    "ideal_use_case": "Convenient for quick spot cleaning of cars, sofas, and small messes around the house.",
+    "tags": "handheld vacuum, spot cleaner, car vacuum, home appliance"
+  },
+  {
+    "product_id": 37,
+    "product_name": "Iron Box (Steam)",
+    "category": "Electronics > Home Appliance",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A steam iron designed to quickly and effectively remove wrinkles from everyday clothing.",
+    "detailed_description": "This steam iron combines heat and steam output to smooth out wrinkles more effectively than dry ironing alone. Its non-stick soleplate glides smoothly over fabrics, reducing the chance of snagging or damage. Adjustable temperature and steam settings accommodate different fabric types, from delicate garments to heavier materials, making it suitable for regular household use.",
+    "key_features": [
+      "Steam and dry ironing modes",
+      "Non-stick soleplate",
+      "Adjustable temperature settings",
+      "Anti-drip and auto shut-off safety features"
+    ],
+    "specifications": {
+      "Power": "1200W",
+      "Water Tank Capacity": "200ml",
+      "Soleplate": "Non-stick coated",
+      "Cord Length": "1.8m"
+    },
+    "ideal_use_case": "A household essential for regularly ironing clothes across various fabric types.",
+    "tags": "steam iron, ironing appliance, clothes iron, home appliance"
+  },
+  {
+    "product_id": 38,
+    "product_name": "Hair Dryer",
+    "category": "Electronics > Personal Care",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A compact hair dryer with multiple heat and speed settings for everyday styling.",
+    "detailed_description": "This hair dryer offers multiple heat and airflow speed combinations to accommodate different hair types and styling needs. A cool-shot button helps set styles after drying, while the lightweight, ergonomic design reduces arm fatigue during use. Suitable for daily personal care routines, it balances performance with ease of handling.",
+    "key_features": [
+      "Multiple heat and speed settings",
+      "Cool-shot button for style setting",
+      "Lightweight ergonomic design",
+      "Overheat protection"
+    ],
+    "specifications": {
+      "Power": "1800W",
+      "Settings": "3 heat / 2 speed",
+      "Weight": "400g",
+      "Cord Length": "1.8m"
+    },
+    "ideal_use_case": "A practical everyday personal care appliance for quick hair drying and basic styling.",
+    "tags": "hair dryer, personal care, hair styling appliance"
+  },
+  {
+    "product_id": 39,
+    "product_name": "Trimmer",
+    "category": "Electronics > Personal Care",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A cordless trimmer for grooming facial and body hair with adjustable length settings.",
+    "detailed_description": "This cordless trimmer offers precision grooming with multiple adjustable length settings for beard, mustache, or body hair. Its rechargeable battery supports cordless use for convenience, while stainless steel or ceramic blades stay sharp with minimal maintenance. Waterproof designs on some models also allow use in the shower, making it a versatile addition to a personal grooming routine.",
+    "key_features": [
+      "Cordless rechargeable operation",
+      "Multiple adjustable length settings",
+      "Durable sharp blades",
+      "Washable, low-maintenance design"
+    ],
+    "specifications": {
+      "Battery Life": "60 minutes",
+      "Charging Time": "90 minutes",
+      "Length Settings": "20 levels",
+      "Water Resistance": "IPX7"
+    },
+    "ideal_use_case": "Convenient for regular at-home grooming without needing frequent salon visits.",
+    "tags": "trimmer, grooming appliance, beard trimmer, personal care"
+  },
+  {
+    "product_id": 40,
+    "product_name": "Electric Toothbrush",
+    "category": "Electronics > Personal Care",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A rechargeable electric toothbrush offering more effective plaque removal than manual brushing.",
+    "detailed_description": "This electric toothbrush uses oscillating or sonic vibration technology to remove plaque more effectively than manual brushing alone. It typically includes multiple brushing modes for sensitive gums, whitening, or deep cleaning, along with a built-in timer to encourage the dentist-recommended two-minute brushing duration. The rechargeable battery and travel case make it convenient for both home and travel use.",
+    "key_features": [
+      "Sonic vibration cleaning technology",
+      "Multiple brushing modes",
+      "Built-in two-minute timer",
+      "Rechargeable battery with travel case"
+    ],
+    "specifications": {
+      "Battery Life": "Up to 3 weeks",
+      "Brushing Modes": "3",
+      "Vibrations": "31,000/min",
+      "Water Resistance": "IPX7"
+    },
+    "ideal_use_case": "Recommended for anyone wanting improved daily oral hygiene over manual brushing.",
+    "tags": "electric toothbrush, oral care, personal care appliance"
+  },
+  {
+    "product_id": 41,
+    "product_name": "Digital Weighing Scale",
+    "category": "Electronics > Personal Care",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A digital bathroom scale offering accurate, easy-to-read weight measurements for daily tracking.",
+    "detailed_description": "This digital weighing scale provides quick and accurate weight readings through a large, easy-to-read display. Its sensitive sensors ensure consistent measurements, while the slim, tempered-glass design fits easily into most bathrooms. Suitable for anyone tracking weight as part of a fitness or health routine, it offers a simple, no-fuss way to monitor progress.",
+    "key_features": [
+      "Accurate digital sensors",
+      "Large, easy-to-read display",
+      "Slim tempered-glass design",
+      "Auto on/off and low battery indicator"
+    ],
+    "specifications": {
+      "Capacity": "180kg",
+      "Display": "Digital LCD",
+      "Power Source": "Battery operated",
+      "Platform Material": "Tempered glass"
+    },
+    "ideal_use_case": "Useful for individuals tracking weight regularly as part of health or fitness goals.",
+    "tags": "digital scale, weighing scale, bathroom scale, personal care"
+  },
+  {
+    "product_id": 42,
+    "product_name": "Study Table Lamp",
+    "category": "Home > Furniture/Lighting",
+    "brand": "[Brand Placeholder]",
+    "short_description": "An adjustable LED study lamp designed to reduce eye strain during reading and desk work.",
+    "detailed_description": "This table lamp provides focused, adjustable lighting suited for reading, studying, or desk work. Multiple brightness levels and color temperature settings help reduce eye strain during extended use, while a flexible arm or neck allows precise directional lighting. Energy-efficient LED technology keeps power use low, and many models include USB charging ports for added convenience at a desk.",
+    "key_features": [
+      "Adjustable brightness and color temperature",
+      "Flexible, directional lamp arm",
+      "Energy-efficient LED lighting",
+      "USB charging port (select models)"
+    ],
+    "specifications": {
+      "Power": "10W",
+      "Brightness Levels": "5",
+      "Color Temperature": "3000K-6500K",
+      "Power Source": "USB/Adapter"
+    },
+    "ideal_use_case": "Ideal for students and professionals needing focused, adjustable desk lighting.",
+    "tags": "study lamp, LED table lamp, desk lighting, reading lamp"
+  },
+  {
+    "product_id": 43,
+    "product_name": "LED Ceiling Light",
+    "category": "Home > Lighting",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A flush-mount LED ceiling light providing even, energy-efficient illumination for any room.",
+    "detailed_description": "This LED ceiling light offers broad, even illumination suitable for living rooms, bedrooms, or kitchens. Its slim, flush-mount design fits close to the ceiling for a clean, modern look, while energy-efficient LEDs provide bright light with lower power consumption than traditional bulbs. Some models offer adjustable color temperature to switch between warm and cool lighting depending on the mood or task.",
+    "key_features": [
+      "Even, wide-area illumination",
+      "Slim flush-mount design",
+      "Energy-efficient LED technology",
+      "Adjustable color temperature (select models)"
+    ],
+    "specifications": {
+      "Wattage": "24W",
+      "Lumens": "2000lm",
+      "Diameter": "30cm",
+      "Lifespan": "30,000 hours"
+    },
+    "ideal_use_case": "A practical main lighting source for any room needing consistent, bright illumination.",
+    "tags": "LED ceiling light, room lighting, flush mount light, home lighting"
+  },
+  {
+    "product_id": 44,
+    "product_name": "Sofa Set 3-Seater",
+    "category": "Home > Furniture",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A comfortable 3-seater sofa designed as a centerpiece for living room seating.",
+    "detailed_description": "This 3-seater sofa combines a sturdy wooden frame with high-density foam cushioning for lasting comfort and support. The upholstery fabric is chosen for durability and ease of cleaning, suitable for everyday family use. Its classic design fits a range of living room styles, serving as a comfortable primary seating option for relaxing or entertaining guests.",
+    "key_features": [
+      "Sturdy wooden frame construction",
+      "High-density foam cushioning",
+      "Durable, easy-to-clean upholstery",
+      "Classic design fits most decor styles"
+    ],
+    "specifications": {
+      "Seating Capacity": "3",
+      "Frame Material": "Solid wood",
+      "Upholstery": "Fabric",
+      "Dimensions": "180 x 85 x 90 cm"
+    },
+    "ideal_use_case": "A central seating piece for living rooms hosting family or guests.",
+    "tags": "sofa, 3-seater sofa, living room furniture, couch"
+  },
+  {
+    "product_id": 45,
+    "product_name": "Dining Table Set",
+    "category": "Home > Furniture",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A dining table set with matching chairs, designed for everyday family meals and gatherings.",
+    "detailed_description": "This dining table set includes a sturdy table and matching chairs suited for daily family meals or hosting small gatherings. The table surface is finished for easy cleaning, while the chair design balances comfort with sturdy support. Constructed from durable materials, it's built to handle regular daily use in busy households.",
+    "key_features": [
+      "Table with matching chair set",
+      "Durable, easy-to-clean tabletop",
+      "Sturdy construction for daily use",
+      "Space-efficient design"
+    ],
+    "specifications": {
+      "Seating Capacity": "4",
+      "Material": "Engineered wood / Solid wood",
+      "Table Dimensions": "120 x 75 x 75 cm",
+      "Chairs Included": "4"
+    },
+    "ideal_use_case": "Suited for families needing a dedicated everyday dining space.",
+    "tags": "dining table, dining set, furniture, kitchen table"
+  },
+  {
+    "product_id": 46,
+    "product_name": "Bed Frame Queen Size",
+    "category": "Home > Furniture",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A sturdy queen-size bed frame providing solid mattress support with a clean, functional design.",
+    "detailed_description": "This queen-size bed frame offers a sturdy base for mattress support, built from durable materials designed to handle daily use over years. Its clean, minimal design fits a range of bedroom styles, while reinforced slats provide even weight distribution and reduce mattress sagging over time. A dependable foundation piece for any bedroom setup.",
+    "key_features": [
+      "Sturdy queen-size frame",
+      "Reinforced slats for mattress support",
+      "Clean, minimal design",
+      "Durable build for long-term use"
+    ],
+    "specifications": {
+      "Size": "Queen (60x80 inch)",
+      "Material": "Engineered wood / Metal",
+      "Height": "35cm (frame only)",
+      "Weight Capacity": "200kg"
+    },
+    "ideal_use_case": "A dependable bedroom furniture piece for mattress support and structure.",
+    "tags": "bed frame, queen bed, bedroom furniture"
+  },
+  {
+    "product_id": 47,
+    "product_name": "Mattress Queen Size",
+    "category": "Home > Furniture",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A queen-size mattress offering balanced support and comfort for consistent, restful sleep.",
+    "detailed_description": "This queen-size mattress uses layered foam construction to balance support and comfort, helping maintain spinal alignment during sleep. Breathable materials help regulate temperature through the night, while the medium-firm feel suits a wide range of sleeping positions. Designed for durability, it maintains its shape and support over years of regular use.",
+    "key_features": [
+      "Layered foam for balanced support",
+      "Breathable, temperature-regulating materials",
+      "Medium-firm feel for varied sleep positions",
+      "Durable, long-lasting construction"
+    ],
+    "specifications": {
+      "Size": "Queen (60x80 inch)",
+      "Thickness": "8 inches",
+      "Material": "Memory foam + high-density foam",
+      "Firmness": "Medium-firm"
+    },
+    "ideal_use_case": "Suited for anyone wanting consistent comfort and support for nightly sleep.",
+    "tags": "mattress, queen mattress, memory foam mattress, bedroom"
+  },
+  {
+    "product_id": 48,
+    "product_name": "Wardrobe 3-Door",
+    "category": "Home > Furniture",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A spacious 3-door wardrobe offering organized storage for clothing and household items.",
+    "detailed_description": "This 3-door wardrobe provides ample storage space with a combination of hanging rods, shelves, and drawers to organize clothing and other household items. Its sturdy construction supports daily opening and closing without wear, while the finish resists scratches and stains common in everyday use. A practical storage solution for bedrooms needing organized closet space.",
+    "key_features": [
+      "3-door design with hanging and shelf space",
+      "Sturdy, scratch-resistant finish",
+      "Includes drawers for additional storage",
+      "Space-efficient vertical design"
+    ],
+    "specifications": {
+      "Doors": "3",
+      "Material": "Engineered wood",
+      "Dimensions": "150 x 52 x 200 cm",
+      "Drawers": "2"
+    },
+    "ideal_use_case": "Ideal for bedrooms needing organized, spacious clothing and item storage.",
+    "tags": "wardrobe, closet, bedroom storage, furniture"
+  },
+  {
+    "product_id": 49,
+    "product_name": "Bookshelf",
+    "category": "Home > Furniture",
+    "brand": "[Brand Placeholder]",
+    "short_description": "A multi-tier bookshelf offering organized storage and display space for books and decor items.",
+    "detailed_description": "This bookshelf offers multiple tiers for organizing books, decor items, or storage boxes in living rooms, bedrooms, or home offices. Its sturdy shelving supports moderate to heavy loads without sagging, while the open design makes it easy to access and display items. A versatile furniture piece that adds both storage and visual interest to a room.",
+    "key_features": [
+      "Multiple sturdy shelving tiers",
+      "Open design for easy access",
+      "Supports moderate to heavy loads",
+      "Compact footprint"
+    ],
+    "specifications": {
+      "Tiers": "5",
+      "Material": "Engineered wood / Metal frame",
+      "Dimensions": "80 x 30 x 180 cm",
+      "Load Capacity per Shelf": "15kg"
+    },
+    "ideal_use_case": "Useful for organizing books and decor in living rooms, bedrooms, or home offices.",
+    "tags": "bookshelf, storage furniture, shelving unit, home decor"
+  },
+  {
+    "product_id": 50,
+    "product_name": "Office Chair",
+    "category": "Home > Furniture",
+    "brand": "[Brand Placeholder]",
+    "short_description": "An ergonomic office chair with adjustable features designed for comfortable extended desk work.",
+    "detailed_description": "This office chair is built with ergonomic support in mind, offering adjustable height, backrest tilt, and armrests to suit different desk setups and body types. Breathable mesh backing helps with airflow during long work sessions, while a sturdy base with smooth-rolling casters supports easy movement around a workspace. A practical seating solution for home offices or study spaces.",
+    "key_features": [
+      "Ergonomic adjustable height and tilt",
+      "Breathable mesh back support",
+      "Adjustable armrests",
+      "Smooth-rolling caster wheels"
+    ],
+    "specifications": {
+      "Material": "Mesh + foam cushioning",
+      "Height Adjustment": "42-52cm seat height",
+      "Weight Capacity": "120kg",
+      "Base": "5-wheel rolling base"
+    },
+    "ideal_use_case": "Suited for anyone working from a desk for extended periods needing ergonomic support.",
+    "tags": "office chair, ergonomic chair, desk chair, home office furniture"
+  }
+]
