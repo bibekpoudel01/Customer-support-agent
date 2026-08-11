@@ -1,62 +1,60 @@
-# Account Support Knowledge Base
+Account Support Knowledge Base — Profile & Security
+This document covers customer profile management, account recovery, and security protocols. Use this when a customer needs help managing their account data, rather than physical product or return issues.
 
-## Password Reset
-
-**Q: How do I reset my password?**
+1. Password Reset & Login
+Q: How do I reset my password?
 A:
-1. Go to Login > "Forgot Password."
-2. Enter the registered email or phone number.
-3. An OTP or reset link is sent (valid for 15 minutes).
-4. Enter the OTP/click the link and set a new password (minimum 8 characters, at least one number and one special character).
 
-**Q: I didn't receive the password reset OTP/email.**
+Go to the App/Website Login screen > select "Forgot Password."
+
+Enter the registered email or phone number (ensure the correct +977 country code is selected if using a mobile number).
+
+An OTP or reset link is sent (valid for 15 minutes).
+
+Enter the OTP/click the link and set a new password (minimum 8 characters, at least one number and one special character).
+
+Q: I didn't receive the password reset OTP/email.
 A:
-1. Check spam/junk folder for email; check SMS for phone OTP.
-2. Confirm the email/phone entered matches exactly what's on the account.
-3. Wait 2 minutes before requesting a resend (rate-limited to 3 requests per 15 minutes).
-4. If the customer no longer has access to the registered email/phone, this requires identity verification — escalate to human agent for manual account recovery.
 
-## Profile Updates
+Check the spam/junk folder for email; check SMS for phone OTP.
 
-**Q: How do I update my name, email, or phone number?**
-A: Go to Profile > "Edit Details." 
-- **Email/phone changes** require OTP verification on both the old and new contact method for security.
-- **Name changes** may require ID verification if the account has an active order in transit (to prevent delivery fraud).
+Confirm the email/phone entered matches exactly what's on the account.
 
-**Q: I can't update my email because it says "already in use."**
-A: This means another account is registered with that email. Ask the customer to confirm which account is theirs; if they suspect account duplication or unauthorized use of their email, escalate to human agent for account investigation.
+Wait 2 minutes before requesting a resend (rate-limited to 3 requests per 15 minutes to prevent spam).
 
-## Account Deletion
+If the customer no longer has access to the registered email/phone, this requires identity verification. Escalate to a human agent for manual account recovery.
 
-**Q: How do I delete my account?**
+2. Profile & Address Updates
+Q: How do I update my name, email, or phone number?
+A: Go to Profile > "Edit Details."
+
+Email/phone changes require OTP verification on both the old and new contact methods for security.
+
+Name/Address changes are locked if the account has an active order in transit. For example, if a customer tries to change their delivery address while highly perishable items (like DDC Standard Milk) or high-value items (like the LG Refrigerator or Redmi Note 13) are already out for delivery, they must contact support directly to reroute.
+
+Q: I can't update my email because it says "already in use."
+A: This means another account is registered with that email. Ask the customer to confirm which account is theirs. If they suspect account duplication or unauthorized use of their email, escalate to a human agent for an account merge or investigation.
+
+3. Account Deletion
+Q: How do I delete my account?
 A:
-1. Go to Profile > Settings > "Delete Account."
-2. Confirm via OTP.
-3. Deletion is processed within 7 business days, during which the request can be cancelled by logging back in.
-4. **Note**: Accounts with active/pending orders, ongoing returns, or unresolved refunds cannot be deleted until those are completed.
-5. Deleted account data (order history, saved addresses, payment methods) is permanently removed after the 7-day grace period and cannot be recovered.
 
-**Q: Will deleting my account cancel my active orders?**
-A: No — active orders must be completed, cancelled, or resolved (including any pending refund) before account deletion can proceed.
+Go to Profile > Settings > "Delete Account."
 
-## Account Security
+Confirm via OTP.
 
-**Q: I think someone else accessed my account.**
-A:
-1. Immediately advise the customer to reset their password.
-2. Check account activity log (login locations/devices) if available in the system.
-3. Check for any unauthorized orders placed and pause/cancel them if not yet shipped.
-4. Escalate to human agent for security review — this is a priority case regardless of other queue status.
+Deletion is processed within 7 business days, during which the request can be cancelled by logging back in.
 
-**Q: How do I enable two-factor authentication (2FA)?**
-A: Go to Profile > Security > "Two-Factor Authentication" > Enable. Requires a verified phone number for OTP-based 2FA.
+Important Restriction: Accounts with active/pending orders (e.g.,I have received and reviewed the Account Support Knowledge Base document. It outlines standard operating procedures and escalation paths for:
 
-## Login/Account Access Issues (cross-reference)
-For login errors like OTP failures, locked accounts, or app-side login bugs, see the **Technical Support** document. This document covers account data/profile management specifically.
+*I have reviewed the Account Support Knowledge Base you provided. It is a clear and well-structured set of guidelines covering the core aspects of user account management, including:
 
-## Escalation Trigger for This Category
-Escalate to a human agent if:
-- Customer has lost access to both registered email and phone (manual identity verification needed).
-- Suspected unauthorized account access or security breach.
-- Account deletion blocked due to unresolved order/refund and customer disputes this.
-- Duplicate account or identity conflict issues.
+Password Management: Standard reset flows, OTP troubleshooting, and account recovery for lost access.
+
+Profile Updates: Security protocols for changing contact information and handling duplicate email conflicts.
+
+Account Deletion: The step-by-step deletion process, the 7-day grace period, and blockers such as active orders or pending refunds.
+
+Account Security: Immediate triage steps for compromised accounts and 2FA setup instructions.
+
+Escalation Triggers: Clear, definitive boundaries for when to route a user to a human agent.

@@ -70,7 +70,7 @@ def get_rails_config() -> RailsConfig:
     )
 
 
-def initialize_rails(exp_num: int) -> None:
+def initialize_rails() -> None:
     """Builds the single module-level rails engine used by guard()."""
     global _RAILS_ENGINE
     config = get_rails_config()
@@ -78,7 +78,7 @@ def initialize_rails(exp_num: int) -> None:
     engine.register_action(detect_pii_in_input, "detect_pii_in_input")
     engine.register_action(classify_urgency, "classify_urgency")
     _RAILS_ENGINE = engine
-    logfire.info(f"🛡️ Guardrails initialized for EXP {exp_num}")
+    logfire.info(f"🛡️ Guardrails initialized .")
 
 
 async def guard(message: str):

@@ -1,0 +1,102 @@
+[
+  {
+    "product_id": 1,
+    "product_name": "Wai Wai Chicken Noodles",
+    "category": "Grocery",
+    "brand": "CG",
+    "price": 25,
+    "stock_qty": 500,
+    "short_description": "Popular instant noodles, ready to eat or cook.",
+    "tags": "noodles, grocery, snacks, food"
+  },
+  {
+    "product_id": 2,
+    "product_name": "Kurkure Masala Munch",
+    "category": "Snacks",
+    "brand": "Frito-Lay",
+    "price": 50,
+    "stock_qty": 150,
+    "short_description": "Spicy and crunchy corn puff snacks.",
+    "tags": "snacks, kurkure, spicy, chips"
+  },
+  {
+    "product_id": 3,
+    "product_name": "Redmi Note 13",
+    "category": "Smartphone",
+    "brand": "Xiaomi",
+    "price": 24999,
+    "stock_qty": 45,
+    "short_description": "Value-for-money smartphone with a 120Hz AMOLED display.",
+    "tags": "smartphone, mobile, xiaomi, android"
+  },
+  {
+    "product_id": 4,
+    "product_name": "Bestseller Book Set of 4",
+    "category": "Books",
+    "brand": "Various Publishers",
+    "price": 1800,
+    "stock_qty": 20,
+    "short_description": "Bundle includes: Atomic Habits, The Psychology of Money, The Subtle Art of Not Giving a F*ck, and Rich Dad Poor Dad.",
+    "tags": "books, self-help, bundle, reading"
+  },
+  {
+    "product_id": 5,
+    "product_name": "LG 260L Double Door Refrigerator",
+    "category": "Home Appliances",
+    "brand": "LG",
+    "price": 55000,
+    "stock_qty": 8,
+    "short_description": "Frost-free double door fridge with smart inverter compressor.",
+    "tags": "fridge, refrigerator, appliances, lg"
+  },
+  {
+    "product_id": 6,
+    "product_name": "Fantech Fighter Mechanical Keyboard",
+    "category": "Keyboard",
+    "brand": "Fantech",
+    "price": 3500,
+    "stock_qty": 30,
+    "short_description": "Wired mechanical gaming keyboard with RGB lighting.",
+    "tags": "keyboard, gaming, fantech, accessories"
+  },
+  {
+    "product_id": 7,
+    "product_name": "boAt Rockerz 450",
+    "category": "Headphones",
+    "brand": "boAt",
+    "price": 3500,
+    "stock_qty": 25,
+    "short_description": "On-ear wireless Bluetooth headphones with punchy bass.",
+    "tags": "headphones, boat, wireless, audio"
+  },
+  {
+    "product_id": 8,
+    "product_name": "DDC Standard Milk (1 Liter)",
+    "category": "Dairy",
+    "brand": "DDC",
+    "price": 100,
+    "stock_qty": 50,
+    "short_description": "Fresh pasteurized standardized milk, daily supply.",
+    "tags": "milk, dairy, fresh, daily"
+  },
+  {
+    "product_id": 9,
+    "product_name": "CG Table Fan High Speed",
+    "category": "Home Appliances",
+    "brand": "CG",
+    "price": 999,
+    "stock_qty": 60,
+    "short_description": "Compact and high-speed table fan for quick cooling.",
+    "tags": "fan, table fan, cooling, cg"
+  },
+  {
+    "product_id": 10,
+    "product_name": "Baltra Electric Rice Cooker (1.8L)",
+    "category": "Kitchen Appliances",
+    "brand": "Baltra",
+    "price": 2800,
+    "stock_qty": 18,
+    "short_description": "Automatic electric rice cooker with keep-warm function.",
+    "tags": "kitchen, rice cooker, baltra, appliances"
+  }
+]
