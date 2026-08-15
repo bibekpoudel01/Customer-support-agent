@@ -56,6 +56,3 @@ def load_products(json_path: str) -> None:
     print(f"Loaded {len(products)} products.")
 
 
-if __name__ == "__main__":
-    init_db()
-    load_products(PRODUCT_SOURCE)

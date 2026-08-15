@@ -5,11 +5,14 @@ from sqlalchemy.orm import sessionmaker, declarative_base
 
 
 
+import os
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent.parent  
 DATABASE_URL = os.getenv(
     "DATABASE_URL",
-    "sqlite:///./products.db"
+    f"sqlite:///{BASE_DIR / 'products.db'}"
 )
-
 connect_args = (
     {"check_same_thread": False}
     if DATABASE_URL.startswith("sqlite")

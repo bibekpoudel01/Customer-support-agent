@@ -43,7 +43,10 @@ Examples:
 """
 
     with logfire.span("🧠 Planner decision"):
-        router = llm.with_structured_output(RouteDecision)
+        router = llm.with_structured_output(
+        RouteDecision,
+        method="function_calling"
+    )
         decision = router.invoke(prompt)
         logfire.info(f"Intent: {decision.intent} | Query: {decision.search_query}")
 
@@ -62,7 +65,7 @@ Examples:
             "plan": [f"Intent: SQL Lookup", f"Search term: {decision.search_query}"],
         }
 
-    else:  # retrieval
+    else:  
         return {
             "current_query": decision.search_query,
             "intent": "retrieval",

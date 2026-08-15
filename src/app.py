@@ -1,35 +1,44 @@
 import os
 import sys
+import uuid
 import asyncio
 from contextlib import asynccontextmanager
 from typing import Optional
-
 import logfire
 from dotenv import load_dotenv
 from fastapi import FastAPI, Response
 from pydantic import BaseModel
-
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 load_dotenv(override=True)
 logfire.configure(token=os.getenv("LOGFIRE_TOKEN"))
-
-from src.config.config import Config
+from pathlib import Path
+sys.path.append(str(Path(__file__).parent.parent))
+from src.config.config import *
+from src.config.config import DATA_DIR
 from src.guardrails.actions import initialize_rails, guard
 from src.ingestion.vectorstore import GLOBAL_COLLECTION_NAME
+from src.ingestion.data_loader.document_loader import load_documents
+from src.ingestion.chunking.splitter import create_semantic_chunks
+from src.ingestion.vectorstore import build_vectorstore
+from langgraph.checkpoint.postgres.aio import AsyncPostgresSaver
+from src.services.database_services import get_async_db_pool
+from src.agent.graph import create_graph
+from src.sql.database import init_db
+from langgraph.checkpoint.memory import MemorySaver
+HERE = Path(__file__).parent
 
-config_instance = Config()
+PRODUCT_SOURCE = HERE / "sql" / "product.json"
+from src.sql.ingest_product import load_products
+
 GLOBAL_DEFAULT_SESSION = "default_user"
 FALLBACK_ANSWER = "Sorry, something went wrong. Please try again."
 
 _RAG_AGENT = None
 
 USE_SEMANTIC_CACHE = os.getenv("USE_SEMANTIC_CACHE", "false").lower() == "true"
-if USE_SEMANTIC_CACHE:
-    try:
-        from src.services.redis_semantic import check_cache, set_cache
-    except ImportError as e:
-        logfire.error(f"Failed to import Redis semantic cache modules: {e}")
-        USE_SEMANTIC_CACHE = False
+from src.services.redis_semantic import check_cache, set_cache
+
+
+
 
 
 def _collection_already_populated() -> bool:
@@ -41,7 +50,7 @@ def _collection_already_populated() -> bool:
             url=os.getenv("QDRANT_URL"),
             api_key=os.getenv("QDRANT_API_KEY"),
         )
-        collection_name = getattr(config_instance, "collection_name", GLOBAL_COLLECTION_NAME)
+        collection_name = GLOBAL_COLLECTION_NAME
 
         if client.collection_exists(collection_name=collection_name):
             info = client.get_collection(collection_name=collection_name)
@@ -54,61 +63,119 @@ def _collection_already_populated() -> bool:
         return False
 
 
+
+
 def _run_ingestion() -> None:
     """Load, chunk, and embed source documents into the vector store."""
-    target_data_directory = config_instance.data_dir
-    if not (os.path.exists(target_data_directory) and os.listdir(target_data_directory)):
-        logfire.warning(f"Ingestion skipped: target directory '{target_data_directory}' is empty.")
+    target_data_directory = Path(DATA_DIR)
+
+    if not target_data_directory.exists() or not target_data_directory.is_dir():
+        logfire.warning(
+            f"Ingestion skipped: target directory '{target_data_directory}' does not exist."
+        )
+        return
+    source_files = [str(file_path)
+                     for file_path in target_data_directory.iterdir() 
+                     if file_path.is_file()]
+
+    if not source_files:
+        logfire.warning(
+            f"Ingestion skipped: target directory '{target_data_directory}' is empty."
+        )
         return
 
     try:
-        logfire.info("Processing source documents ingestion flow...")
-        from src.ingestion.data_loader import document_loader as load_documents
-        from src.ingestion.chunking.splitter import create_semantic_chunks
-        from src.ingestion.vectorstore import build_vectorstore
-
-        raw_docs = load_documents([target_data_directory])
+        logfire.info(f"Processing source documents ingestion flow... Found {len(source_files)} files.")
+        raw_docs = load_documents(source_files)
         if not raw_docs:
+            logfire.warning("No documents were successfully loaded.")
             return
 
+        logfire.info(f"Successfully loaded {len(raw_docs)} documents.")
         semantic_chunks = create_semantic_chunks(raw_docs)
         if semantic_chunks:
-            build_vectorstore(documents=semantic_chunks, session_id=GLOBAL_DEFAULT_SESSION)
+            logfire.info(f"Created {len(semantic_chunks)} semantic chunks.")
+            build_vectorstore(
+                documents=semantic_chunks,
+                session_id=GLOBAL_DEFAULT_SESSION
+            )
             logfire.info("Vector store setup finalized.")
+        else:
+            logfire.warning("No semantic chunks were created.")
+
     except Exception as ingestion_error:
         logfire.error(f"Ingestion pipeline failed: {ingestion_error}")
+        raise
+
+
+def _initialize_sql_database() -> None:
+    """
+    Initialize SQLite database and load product seed data.
+    SQLite products.db is completely separate from
+    PostgreSQL used by LangGraph checkpointing.
+    """
+    try:
+        init_db()
+        logfire.info("✅ SQL database tables initialized.")
+        if not PRODUCT_SOURCE.exists():
+            logfire.warning(f"Product JSON not found: {PRODUCT_SOURCE}")
+            return
+
+        load_products(str(PRODUCT_SOURCE))
+        logfire.info("✅ Product data loaded into products.db.")
+
+    except Exception as e:
+        logfire.exception(f"❌ SQL database initialization failed: {e}")
         raise
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     global _RAG_AGENT
-
+    async_pool = None
     try:
         initialize_rails()
     except Exception as e:
         logfire.error(f"Guardrails init failed: {e}")
-
     try:
-        from src.sql.database import init_db
-        init_db()
+        _initialize_sql_database()
     except Exception as e:
-        logfire.error(f"DB init failed: {e}")
+        logfire.error(f"SQL DB init failed: {e}")
 
     if not _collection_already_populated():
         _run_ingestion()
 
-    from src.agent.graph import app as compiled_graph
-    _RAG_AGENT = compiled_graph
+    try:
+        async_pool = await get_async_db_pool()
+
+        if async_pool is not None:
+            checkpointer = AsyncPostgresSaver(async_pool)
+            await checkpointer.setup()
+            _RAG_AGENT = create_graph(checkpointer)
+            logfire.info("✅ LangGraph initialized with AsyncPostgresSaver")
+        else:
+            _RAG_AGENT = create_graph(MemorySaver())
+            logfire.warning("⚠️ Async Postgres unavailable — using MemorySaver")
+    except Exception as e:
+        logfire.exception(f"❌ LangGraph initialization failed: {e}")
+        raise
     yield
 
+   
+    if async_pool is not None:
+        await async_pool.close()
 
-app = FastAPI(title="Enterprise Agentic RAG API", lifespan=lifespan)
+        logfire.info( "✅ Async Postgres connection pool closed")
+
+
+
+
+app = FastAPI(title="Customer Support Agent API", lifespan=lifespan)
 
 
 class QueryRequest(BaseModel):
     q: str
-    thread_id: Optional[str] = GLOBAL_DEFAULT_SESSION
+    thread_id: Optional[str] = None
 
 
 @app.get("/")
@@ -130,7 +197,7 @@ async def get_graph_image():
 @app.post("/query")
 async def query(request: QueryRequest):
     q = request.q
-    thread_id = request.thread_id or GLOBAL_DEFAULT_SESSION
+    thread_id = request.thread_id or f"anon-{uuid.uuid4()}"
 
     if USE_SEMANTIC_CACHE:
         cached = await asyncio.to_thread(check_cache, q)
@@ -155,7 +222,6 @@ async def query(request: QueryRequest):
     config = {"configurable": {"thread_id": thread_id}}
 
     try:
-        
         final_output = await _RAG_AGENT.ainvoke(initial_state, config=config)
         answer = final_output.get("final_answer", FALLBACK_ANSWER)
 
@@ -172,5 +238,13 @@ async def query(request: QueryRequest):
             "sources": final_output.get("documents", []),
         }
     except Exception as e:
-        logfire.error(f"Query failed for thread '{thread_id}': {e}")
-        return {"question": q, "answer": FALLBACK_ANSWER, "status": "error"}
+        logfire.exception(
+            f"Query failed for thread '{thread_id}'"
+        )
+
+        return {
+            "question": q,
+            "answer": FALLBACK_ANSWER,
+            "status": "error",
+            "error": repr(e),
+        }

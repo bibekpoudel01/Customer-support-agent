@@ -1,9 +1,9 @@
 import logfire
 from src.agent.state import AgentState
 from src.gateway.client import portkey_client, extract_cache_status
-from src.config.config import Settings
+from src.config.config import *
 
-settings = Settings()
+
 
 FALLBACK_MESSAGE = "Sorry, I don't have information on that in our catalog."
 def format_history(messages: list) -> str:
@@ -18,7 +18,7 @@ def format_history(messages: list) -> str:
 
 def call_llm(prompt: str) -> tuple[str, str]:
     response = portkey_client.chat.completions.create(
-        model=f"@{settings.GROQ_SLUG}/llama-3.3-70b-versatile",
+        model=f"@{GROQ_SLUG}/llama-3.3-70b-versatile",
         messages=[{"role": "system", "content": prompt}],
     )
     cache_status = extract_cache_status(response)

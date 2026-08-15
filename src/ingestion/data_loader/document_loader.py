@@ -55,9 +55,19 @@ def load_documents(sources: List[str]) -> List[Document]:
 
 
 if __name__ == "__main__":
-  
-    project_root = Path(__file__).resolve().parents[3]  
-    file_path = project_root / "DATA" / "true_data" / "product.json"
 
-    loaders = load_documents([str(file_path)])
-    print(loaders)
+    project_root = Path(__file__).resolve().parents[3]
+    data_dir = project_root / "DATA" / "true_data"
+
+    files = [
+        str(file)
+        for file in data_dir.iterdir()
+        if file.is_file()
+    ]
+
+    loaders = load_documents(files)
+
+    print(f"Loaded {len(loaders)} documents")
+
+    for doc in loaders:
+        print(f"Source: {doc.metadata['source']}")

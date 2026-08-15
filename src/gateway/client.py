@@ -1,7 +1,7 @@
 import logfire
 from portkey_ai import Portkey, createHeaders, PORTKEY_GATEWAY_URL
 from langchain_openai import ChatOpenAI
-from src.config import settings
+from src.config.config import *
 
 GATEWAY_CONFIG = {
     "strategy": {"mode": "fallback"},
@@ -11,13 +11,13 @@ GATEWAY_CONFIG = {
         "on_status_codes": [429, 503]
     },
     "targets": [
-        {"override_params": {"model": f"@{settings.GROQ_SLUG}/llama-3.3-70b-versatile"}},
-        {"override_params": {"model": f"@{settings.GROQ_SLUG_2}/llama-3.1-8b-instant"}},
+        {"override_params": {"model": f"@{GROQ_SLUG}/llama-3.3-70b-versatile"}},
+        {"override_params": {"model": f"@{GROQ_SLUG_2}/llama-3.1-8b-instant"}},
     ]
 }
 
 portkey_client = Portkey(
-    api_key=settings.PORTKEY_API_KEY,
+    api_key=PORTKEY_API_KEY,
     config=GATEWAY_CONFIG
 )
 
@@ -27,12 +27,12 @@ def get_langchain_llm(feature: str = "rag") -> ChatOpenAI:
     Returns a Portkey-backed ChatOpenAI — a drop-in for ChatGroq in LangChain nodes.
     """
     return ChatOpenAI(
-        api_key=settings.PORTKEY_API_KEY,
+        api_key=PORTKEY_API_KEY,
         base_url=PORTKEY_GATEWAY_URL,
-        model=f"@{settings.GROQ_SLUG}/llama-3.3-70b-versatile",
+        model=f"@{GROQ_SLUG}/llama-3.3-70b-versatile",
         temperature=0,
         default_headers=createHeaders(
-            api_key=settings.PORTKEY_API_KEY,
+            api_key=PORTKEY_API_KEY,
             config=GATEWAY_CONFIG,
             metadata={
                 "feature": feature,

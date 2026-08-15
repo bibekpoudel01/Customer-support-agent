@@ -8,7 +8,7 @@ from src.sql.tools import (
     check_stock,
     search_products,
     get_order_status,
-    get_payment_methods,
+    
 )
 
 llm = get_langchain_llm(feature="sql_lookup")
@@ -43,7 +43,7 @@ User Message: "{user_msg}"
 """
 
     with logfire.span("🔍 SQL Lookup Extraction"):
-        extractor = llm.with_structured_output(SQLExtraction)
+        extractor = llm.with_structured_output(SQLExtraction, method="function_calling")
         params = extractor.invoke(prompt)
         logfire.info(f"SQL Action: {params.action} | Params: {params.model_dump()}")
 
@@ -80,9 +80,7 @@ User Message: "{user_msg}"
             else:
                 sql_result = {"found": False, "reason": "missing_order_id"}
 
-        elif params.action == "payment_methods":
-            res = get_payment_methods(session_id)
-            sql_result = res.model_dump()
+        
 
         else:
             res = search_products(

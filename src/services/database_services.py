@@ -1,22 +1,19 @@
 import os
 import logfire
 
+
 _pool = None
+_async_pool = None
 
-
-def get_db_pool():
+async def get_async_db_pool():
     """
-    Returns a psycopg3 ConnectionPool for LangGraph PostgresSaver.
-
-    Connection strategy:
-      - Cloud Run:  DB_HOST = /cloudsql/<connection_name>  (Unix socket via mounted volume)
-      - Local dev:  DB_HOST = localhost or IP              (TCP)
-
-    Returns None if any required env var is missing — callers fall back to MemorySaver.
+    Returns an asynchronous psycopg3 connection pool.
+    Used by LangGraph AsyncPostgresSaver.
     """
-    global _pool
-    if _pool is not None:
-        return _pool
+    global _async_pool
+
+    if _async_pool is not None:
+        return _async_pool
 
     db_host = os.getenv("DB_HOST")
     db_user = os.getenv("DB_USER")
@@ -24,21 +21,43 @@ def get_db_pool():
     db_name = os.getenv("DB_NAME")
 
     if not all([db_host, db_user, db_pass, db_name]):
-        logfire.info("ℹ️ DB env vars not set — Postgres pool skipped")
+        logfire.info("ℹ️ DB env vars not set — async Postgres pool skipped")
         return None
 
     try:
-        from psycopg_pool import ConnectionPool
+        from psycopg_pool import AsyncConnectionPool
 
-        
         conninfo = (
-            f"host={db_host} dbname={db_name} user={db_user} password={db_pass}"
+            f"host={db_host} "
+            f"dbname={db_name} "
+            f"user={db_user} "
+            f"password={db_pass}"
         )
 
-        _pool = ConnectionPool(conninfo, min_size=1, max_size=5, open=True,kwargs={"autocommit": True})
-        logfire.info("✅ Postgres connection pool initialized")
-        return _pool
+        _async_pool = AsyncConnectionPool(
+            conninfo,
+            min_size=1,
+            max_size=5,
+            open=False,
+            kwargs={"autocommit": True},
+        )
+
+        await _async_pool.open()
+
+        logfire.info("✅ Async Postgres connection pool initialized")
+
+        return _async_pool
 
     except Exception as e:
-        logfire.error(f"❌ Postgres pool init failed: {e}")
+        logfire.error(f"❌ Async Postgres pool init failed: {e}")
         return None
+
+
+async def close_async_db_pool():
+    global _async_pool
+
+    if _async_pool is not None:
+        await _async_pool.close()
+        _async_pool = None
+
+        logfire.info("✅ Async Postgres connection pool closed")
