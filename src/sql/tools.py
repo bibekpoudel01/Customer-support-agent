@@ -1,19 +1,14 @@
 from sqlalchemy import select
-from sqlalchemy.orm import selectinload
 
 from src.sql.database import SessionLocal
-from src.sql.orm import Product, Customer, Order
+from src.sql.orm import Product, Ticket
 from src.sql.api import (
     ProductOut,
     ProductLookupResult,
     ProductSearchResult,
-    CustomerOut,
-    CustomerLookupResult,
-    OrderOut,
-    OrderLookupResult,
+    TicketOut,
+    TicketCreateResult,
 )
-
-
 
 
 def get_product_by_id(product_id: int) -> ProductLookupResult:
@@ -115,114 +110,30 @@ def search_products(
         )
 
 
-
-
-def get_customer_by_session(
-    session_id: str
-) -> CustomerLookupResult:
-
-    with SessionLocal() as session:
-
-        stmt = select(Customer).where(
-            Customer.session_id == session_id
-        )
-
-        customer = session.execute(
-            stmt
-        ).scalar_one_or_none()
-
-        if not customer:
-            return CustomerLookupResult(
-                found=False
-            )
-
-        return CustomerLookupResult(
-            found=True,
-            customer=CustomerOut.model_validate(customer)
-        )
-
-
 # ============================================================
-# ORDER TOOLS
+# TICKET TOOLS
+# The agent calls this itself when it can't answer something
+# (from RAG or from the Product table) and needs to hand off
+# to a human. This is the only thing the agent WRITES.
 # ============================================================
 
-def get_order_status(
-    order_id: str,
-    session_id: str
-) -> OrderLookupResult:
-
-    """
-    Return order information only when the order belongs
-    to the verified customer associated with the session.
-    """
-
-    customer_result = get_customer_by_session(session_id)
-
-    if (
-        not customer_result.found
-        or not customer_result.customer.verified
-    ):
-        return OrderLookupResult(
-            found=False,
-            reason="not_verified"
-        )
-
-    customer_id = customer_result.customer.customer_id
+def create_ticket(
+    session_id: str,
+    reason: str,
+    transcript: str | None = None,
+) -> TicketCreateResult:
 
     with SessionLocal() as session:
-
-        stmt = (
-            select(Order)
-            .options(
-                selectinload(Order.items),
-                selectinload(Order.payments)
-            )
-            .where(
-                Order.order_id == order_id,
-                Order.customer_id == customer_id
-            )
+        ticket = Ticket(
+            session_id=session_id,
+            reason=reason,
+            transcript=transcript,
         )
+        session.add(ticket)
+        session.commit()
+        session.refresh(ticket)
 
-        order = session.execute(
-            stmt
-        ).scalar_one_or_none()
-
-        if not order:
-            return OrderLookupResult(
-                found=False,
-                reason="not_found"
-            )
-
-        return OrderLookupResult(
-            found=True,
-            order=OrderOut(
-                order_id=order.order_id,
-                status=order.status.value,
-                order_date=order.order_date.isoformat(),
-                eta_date=(
-                    order.eta_date.isoformat()
-                    if order.eta_date
-                    else None
-                ),
-                tracking_number=order.tracking_number,
-                total_amount=order.total_amount,
-
-                items=[
-                    {
-                        "product_id": item.product_id,
-                        "qty": item.qty,
-                        "unit_price": item.unit_price,
-                    }
-                    for item in order.items
-                ],
-
-                payments=[
-                    {
-                        "amount": payment.amount,
-                        "status": payment.status.value,
-                        "transaction_ref": payment.transaction_ref,
-                    }
-                    for payment in order.payments
-                ],
-            )
+        return TicketCreateResult(
+            created=True,
+            ticket=TicketOut.model_validate(ticket)
         )

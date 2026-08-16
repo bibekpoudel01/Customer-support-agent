@@ -3,7 +3,6 @@ from typing import Optional
 from pydantic import BaseModel, ConfigDict, Field
 
 
-
 class ProductOut(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
@@ -12,12 +11,8 @@ class ProductOut(BaseModel):
     category: str
     brand: Optional[str] = None
 
-   
     price: Optional[float] = None
     stock_qty: Optional[int] = None
-    reserved_qty: int = 0
-    lead_time_days: Optional[int] = None
-
 
     short_description: Optional[str] = None
     tags: Optional[str] = None
@@ -34,52 +29,14 @@ class ProductSearchResult(BaseModel):
     products: list[ProductOut] = Field(default_factory=list)
 
 
-
-
-class CustomerOut(BaseModel):
+class TicketOut(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
-    customer_id: str
-    session_id: Optional[str] = None
-    name: Optional[str] = None
-    email: Optional[str] = None
-    verified: bool = False
-
-
-class CustomerLookupResult(BaseModel):
-    found: bool
-    customer: Optional[CustomerOut] = None
-
-
-
-
-class OrderItemOut(BaseModel):
-    product_id: int
-    qty: int
-    unit_price: float
-
-
-class PaymentOut(BaseModel):
-    amount: float
+    ticket_id: int
     status: str
-    transaction_ref: Optional[str] = None
+    reason: str
 
 
-class OrderOut(BaseModel):
-    model_config = ConfigDict(from_attributes=True)
-
-    order_id: str
-    status: str
-    order_date: str
-    eta_date: Optional[str] = None
-    tracking_number: Optional[str] = None
-    total_amount: Optional[float] = None
-
-    items: list[OrderItemOut] = Field(default_factory=list)
-    payments: list[PaymentOut] = Field(default_factory=list)
-
-
-class OrderLookupResult(BaseModel):
-    found: bool
-    order: Optional[OrderOut] = None
-    reason: Optional[str] = None
+class TicketCreateResult(BaseModel):
+    created: bool
+    ticket: Optional[TicketOut] = None

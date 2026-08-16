@@ -7,8 +7,6 @@ from src.sql.tools import (
     get_product_by_id,
     check_stock,
     search_products,
-    get_order_status,
-    
 )
 
 llm = get_langchain_llm(feature="sql_lookup")
@@ -21,14 +19,11 @@ class SQLExtraction(BaseModel):
             "Action to execute: "
             "'get_product' (for product details/specs), "
             "'check_stock' (for stock availability), "
-            "'get_order' (for order status/tracking), "
-            "'payment_methods' (for customer payment methods), "
             "'search_products' (for general product search)"
         ),
     )
     product_name: str | None = Field(None, description="Name of the product if mentioned.")
     product_id: int | None = Field(None, description="Product ID if specified.")
-    order_id: str | None = Field(None, description="Order ID if specified.")
     category: str | None = Field(None, description="Product category if filtering.")
     keyword: str | None = Field(None, description="Search keyword if applicable.")
 
@@ -37,12 +32,12 @@ def sql_lookup_node(state: AgentState) -> dict:
     """LangGraph node: executes structured SQL queries based on user intent."""
     messages = state.get("messages", [])
     user_msg = messages[-1]["content"] if messages else ""
-    session_id = state.get("session_id", "default_user")
+    
     prompt = f"""Extract SQL lookup parameters from the user message.
 User Message: "{user_msg}"
 """
 
-    with logfire.span("🔍 SQL Lookup Extraction"):
+    with logfire.span("SQL Lookup Extraction"):
         extractor = llm.with_structured_output(SQLExtraction, method="function_calling")
         params = extractor.invoke(prompt)
         logfire.info(f"SQL Action: {params.action} | Params: {params.model_dump()}")
@@ -72,15 +67,6 @@ User Message: "{user_msg}"
             else:
                 res = search_products(keyword=params.keyword or user_msg)
             sql_result = res.model_dump()
-
-        elif params.action == "get_order":
-            if params.order_id:
-                res = get_order_status(params.order_id, session_id)
-                sql_result = res.model_dump()
-            else:
-                sql_result = {"found": False, "reason": "missing_order_id"}
-
-        
 
         else:
             res = search_products(

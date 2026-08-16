@@ -8,12 +8,11 @@ llm = get_langchain_llm(feature="planner")
 
 
 class RouteDecision(BaseModel):
-    intent: Literal["conversational", "sql_lookup", "retrieval"] = Field(
-        ..., description=("conversational: greeting, small talk, or answerable purely from conversation history (e.g. 'what did I just ask'). "
-            "sql_lookup: needs LIVE structured data — stock/availability, price,order status, product specs for a SPECIFIC named product. "
-            "retrieval: needs STATIC document content — return policy, FAQs, shipping info, general product descriptions, warranty terms.")
-)
-    search_query: str = Field(..., description=("Self-contained query rewritten from context. Empty string if intent is 'conversational'. Include the specific product name if intent is 'sql_lookup' (e.g. 'WiFi Smart Plug availability')."))
+    intent: Literal["conversational", "sql_lookup", "retrieval"] 
+    search_query: str = Field(
+        description="The key search term or product name to use for sql_lookup or retrieval.",
+    )
+
 
 def format_history(messages: list) -> str:
     lines = []
@@ -24,29 +23,32 @@ def format_history(messages: list) -> str:
 
 
 def planner_node(state: State) -> dict:
-    """Classifies the latest turn and rewrites it into a self-contained query."""
+    """Plan to choose which route to take based on the current query."""
     history = format_history(state["messages"])
     user_message = state["messages"][-1]["content"] if state["messages"] else ""
 
-    prompt = f"""E-commerce support agent router. Given the conversation, classify
-the latest message and rewrite it as a self-contained query .
-
-History:
+    prompt = f"""You are a planner for a customer support agent.
+Based on the conversation history:
 {history}
 
-Latest: "{user_message}"
+And the latest user message: "{user_message}"
 
-Examples:
-"hi" -> conversational
-"is the WiFi Smart Plug in stock?" -> sql_lookup, "WiFi Smart Plug availability"
-"what's your return policy?" -> retrieval, "return policy"
+Decide the intent of the user. The intent can be one of the following:
+- conversational: greeting, small talk, or answerable purely from conversation
+  history (e.g. "what did I just ask").
+- sql_lookup: needs LIVE structured data for a SPECIFIC named product --
+  stock/availability or price only.
+- retrieval: needs STATIC document content -- return policy, FAQs, shipping
+  info, warranty terms, general product descriptions/specs, and anything the
+  agent can't fulfill yet such as order status (a canned notice for this is
+  in the static docs).
 """
 
-    with logfire.span("🧠 Planner decision"):
+    with logfire.span("Planner decision"):
         router = llm.with_structured_output(
-        RouteDecision,
-        method="function_calling"
-    )
+            RouteDecision,
+            method="function_calling"
+        )
         decision = router.invoke(prompt)
         logfire.info(f"Intent: {decision.intent} | Query: {decision.search_query}")
 
@@ -65,13 +67,10 @@ Examples:
             "plan": [f"Intent: SQL Lookup", f"Search term: {decision.search_query}"],
         }
 
-    else:  
+    else:
         return {
             "current_query": decision.search_query,
             "intent": "retrieval",
             "status": f"Intent: Retrieval. Query: {decision.search_query}",
             "plan": [f"Intent: Retrieval", f"Search term: {decision.search_query}"],
         }
-
-
-
