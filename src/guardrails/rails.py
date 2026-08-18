@@ -65,7 +65,6 @@ define user ask off topic
   "what is the capital of france"
   "write me a poem"
   "what is 2 plus 2"
-  "what should I eat for dinner"
   "who won the game yesterday"
   "recommend a movie"
   "what is the weather like"

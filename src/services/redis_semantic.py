@@ -3,43 +3,39 @@ import json
 import hashlib
 import numpy as np
 import logfire
-
+from sentence_transformers import SentenceTransformer
 DISTANCE_THRESHOLD = float(os.getenv("CACHE_DISTANCE_THRESHOLD", "0.15"))
 CACHE_TTL = int(os.getenv("CACHE_TTL_SECONDS", "3600"))
-KEY_PREFIX = "sem_cache:"
-
-
-_client = None
-_encoder = None
+KEY_PREFIX = "sem_cache:"#
+NOCACHE_FEATURES = {"sql_lookup"}#
+client = None
+encoder = None
 
 
 def _get_client():
     """Connects to free local Redis by default"""
-    global _client
-    if _client is not None:
-        return _client
+    global client
+    if client is not None:
+        return client
 
     import redis
 
-    _client = redis.Redis(
-        host=os.getenv("REDIS_HOST", "localhost"), 
+    client = redis.Redis(
+        host=os.getenv("REDIS_HOST", "localhost"),
         port=int(os.getenv("REDIS_PORT", "6379")),
         socket_connect_timeout=2,
         socket_timeout=2,
         decode_responses=False,
     )
-    return _client
+    return client
 
 
 def _embed_query_local(query: str) -> list[float]:
     """Generates embeddings locally on your machine for FREE"""
-    global _encoder
-    if _encoder is None:
-        from sentence_transformers import SentenceTransformer
-    
-        _encoder = SentenceTransformer("all-MiniLM-L6-v2")
-    
-    embedding = _encoder.encode(query)
+    global encoder
+    if encoder is None:
+        encoder = SentenceTransformer("all-MiniLM-L6-v2")
+    embedding = encoder.encode(query)
     return embedding.tolist()
 
 
@@ -51,8 +47,11 @@ def _cosine_distance(a, b) -> float:
     return float(1.0 - np.dot(a, b) / (norm_a * norm_b))
 
 
-def check_cache(query: str) -> str | None:
+def check_cache(query: str, feature: str = "rag") -> str | None:
     """Returns a cached answer if a semantically similar query exists"""
+    if feature in NOCACHE_FEATURES:
+        return None
+
     if os.getenv("USE_SEMANTIC_CACHE", "false").lower() != "true":
         return None
 
@@ -67,17 +66,21 @@ def check_cache(query: str) -> str | None:
             entry = json.loads(raw)
             dist = _cosine_distance(query_vec, entry["embedding"])
             if dist < DISTANCE_THRESHOLD:
-                logfire.info(f"⚡ Cache HIT (distance={dist:.3f}) for: {query[:60]}")
+                logfire.info(f"Cache HIT (distance={dist:.3f}) for: {query[:60]}")
                 return entry["answer"]
 
     except Exception as e:
-        logfire.warning(f"⚠️ Semantic cache check failed (non-fatal): {e}")
+        logfire.warning(f"Semantic cache check failed (non-fatal): {e}")
 
     return None
 
 
-def set_cache(query: str, answer: str) -> None:
-    """Stores query embedding + answer in local Redis with a TTL"""
+def set_cache(query: str, answer: str, feature: str = "rag") -> None:
+    """Stores query embedding + answer in local Redis with a TTL.
+    """
+    if feature in NOCACHE_FEATURES:
+        return
+
     if os.getenv("USE_SEMANTIC_CACHE", "false").lower() != "true":
         return
 
@@ -93,7 +96,7 @@ def set_cache(query: str, answer: str) -> None:
 
         key = f"{KEY_PREFIX}{hashlib.md5(query.encode()).hexdigest()}"
         client.set(key, json.dumps(entry), ex=CACHE_TTL)
-        logfire.info(f"💾 Cached answer for: {query[:60]}")
+        logfire.info(f"Cached answer for: {query[:60]}")
 
     except Exception as e:
-        logfire.warning(f"⚠️ Semantic cache set failed (non-fatal): {e}")
+        logfire.warning(f"Semantic cache set failed (non-fatal): {e}")

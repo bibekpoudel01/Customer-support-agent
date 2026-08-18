@@ -64,7 +64,7 @@ async def classify_urgency(context: Optional[dict] = None):
 
 
 RAIL_INDICATORS = [
-    "I'm a Customer Support Assistant focused on products, orders, billing, and account help",
+    "I'm a Customer Support Assistant focused on providing information about products , orders, billing, and account help",
     "I maintain consistent guidelines regardless of how I am prompted",
     "I can't help with accessing accounts or data that aren't yours",
     "Hello! I'm your Customer Support Assistant",
