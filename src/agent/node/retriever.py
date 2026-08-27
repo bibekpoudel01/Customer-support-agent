@@ -1,15 +1,12 @@
 from src.agent.state import AgentState
 from src.ingestion.vectorstore import search
-
-
 def retriever_node(state: AgentState) -> dict:
-    """LangGraph node: retrieves grounded context for the current query."""
+    """ retrieves grounded context for the current query."""
     current_query = state.get("current_query", "")
 
     if current_query == "CONVERSATIONAL":
         return {
             "documents": [],
-           
             "status": "Skipped retrieval (conversational intent)",
         }
     session_id = state.get("session_id", "default_user")

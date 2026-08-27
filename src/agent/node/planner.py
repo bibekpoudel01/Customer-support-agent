@@ -6,13 +6,8 @@ from src.gateway.client import get_langchain_llm
 
 llm = get_langchain_llm(feature="planner")
 
-
 class RouteDecision(BaseModel):
     intent: Literal["conversational", "sql_lookup", "retrieval"] 
-    search_query: str = Field(
-        description="The key search term or product name to use for sql_lookup or retrieval.",
-    )
-
 
 def format_history(messages: list) -> str:
     lines = []
@@ -30,18 +25,13 @@ def planner_node(state: State) -> dict:
     prompt = f"""You are a planner for a customer support agent.
 Based on the conversation history:
 {history}
-
 And the latest user message: "{user_message}"
-
-Decide the intent of the user. The intent can be one of the following:
-- conversational: greeting, small talk, or answerable purely from conversation
-  history (e.g. "what did I just ask").
-- sql_lookup: needs LIVE structured data for a SPECIFIC named product --
-  stock/availability or price only.
-- retrieval: needs STATIC document content -- return policy, FAQs, shipping
-  info, warranty terms, general product descriptions/specs, and anything the
-  agent can't fulfill yet such as order status (a canned notice for this is
-  in the static docs).
+Decide the intent of the user.
+Follow the rules to choose or path to select what what sepcific path consist of :
+1. Use CONVERSATIONAL if user is asking about general question that can answer from conversation{conversation}
+2. Use SQL_LOOKUP if user is asking about Product PRICE, Stautus,ORDER (Dynamic answer that can be changes frequently)
+3. Use RETRIEVER if user is asking about ptoduct content lie product description ,
+policy,or any information that never changes frequently
 """
 
     with logfire.span("Planner decision"):
@@ -57,7 +47,7 @@ Decide the intent of the user. The intent can be one of the following:
             "current_query": "CONVERSATIONAL",
             "intent": "conversational",
             "status": "Handling conversationally (using memory)...",
-            "plan": ["Intent: Conversational/Memory", "Retrieval: Skipped"],
+            "plan": ["Intent: Conversational/Memory", "Retrieval: Skipped","SQL Lookup: Skipped"],
         }
     elif decision.intent == "sql_lookup":
         return {

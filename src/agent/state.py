@@ -13,7 +13,6 @@ class AgentState(TypedDict, total=False):
     messages: Annotated[list[AgentMessage], operator.add]
     intent: str
     route: str
-    
     current_query: str
     status: str
     final_answer: str

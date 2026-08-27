@@ -1,9 +1,7 @@
 import logfire
 from src.agent.state import AgentState
-from src.gateway.client import portkey_client, extract_cache_status
+from src.gateway.client import  extract_cache_status,get_langchain_llm
 from src.config.config import *
-
-
 
 FALLBACK_MESSAGE = "Sorry, I don't have information on that in our catalog."
 def format_history(messages: list) -> str:
@@ -16,14 +14,7 @@ def format_history(messages: list) -> str:
     return "\n".join(lines)
 
 
-def call_llm(prompt: str) -> tuple[str, str]:
-    response = portkey_client.chat.completions.create(
-        model=f"@{GROQ_SLUG}/llama-3.3-70b-versatile",
-        messages=[{"role": "system", "content": prompt}],
-    )
-    cache_status = extract_cache_status(response)
-    logfire.info(f"Cache status: {cache_status}")
-    return response.choices[0].message.content, cache_status
+
 
 
 def generate_node(state: AgentState) -> dict:
@@ -36,32 +27,32 @@ def generate_node(state: AgentState) -> dict:
     if intent == "conversational":
         logfire.info("Generating conversational response.")
         prompt = f"""You are a friendly e-commerce support assistant.
-Answer using ONLY the conversation history below. Do not invent facts.
-CONVERSATION HISTORY:
-{history_str or "No prior history."}
-LATEST USER MESSAGE:
-{user_msg}
-"""
+            Answer using ONLY the conversation history below. Do not invent facts.
+            CONVERSATION HISTORY:
+            {history_str or "No prior history."}
+            LATEST USER MESSAGE:
+            {user_msg}
+            """
     elif intent == "sql_lookup":
         logfire.info("Generating SQL-grounded response.")
         product = state.get("sql_result", {})
         prompt = f"""You are an e-commerce support assistant. Answer using ONLY
-the product data below. If a detail isn't present in this data, say you
-don't have that information — do not guess.
+                the product data below. If a detail isn't present in this data, say you
+                don't have that information — do not guess.
 
-PRODUCT DATA:
-{product}
+                PRODUCT DATA:
+                {product}
 
-CONVERSATION HISTORY:
-{history_str}
+                CONVERSATION HISTORY:
+                {history_str}
 
-LATEST USER MESSAGE:
-{user_msg}
-"""
+                LATEST USER MESSAGE:
+                {user_msg}
+                """
 
     elif intent == "retrieval":
         logfire.info("Generating retrieval-grounded response.")
-        max_context_chars = 30000
+        max_context_chars = 20000
         full_context = ""
         for doc in state.get("documents", []):
             chunk = f"[product_id={doc.get('product_id')}] {doc.get('content', '')}"
@@ -70,21 +61,18 @@ LATEST USER MESSAGE:
                 break
             full_context += chunk + "\n\n"
 
-        prompt = f"""You are an e-commerce support assistant. Answer using ONLY
-the product information below. Cite the product_id you used. If the
-information isn't present here, say you don't have that information —
-do not guess or use outside knowledge.
-
-PRODUCT INFORMATION:
-{full_context or "No matching documents."}
-
-CONVERSATION HISTORY:
-{history_str}
-
-LATEST USER MESSAGE:
-{user_msg}
-"""
-    
+        prompt = f"""You are an e-commerce support assistant. Answer using information
+                 below. Cite the product_id you used. If the
+                information isn't present here, say you don't have that information —
+                do not guess or use outside knowledge.
+                PRODUCT INFORMATION:
+                {full_context or "No matching documents."}
+                CONVERSATION HISTORY:
+                {history_str}
+                LATEST USER MESSAGE:
+                {user_msg}
+                """
+                    
     else:
         logfire.warning(f"Unknown intent '{intent}'. Using fallback response.")
         return {
@@ -93,7 +81,7 @@ LATEST USER MESSAGE:
         }
 
     try:
-        llm_response, cache_status = call_llm(prompt)
+        llm_response, cache_status = get_langchain_llm().invoke([("user", prompt)])
         is_cached_hit = cache_status == "HIT"
         if is_cached_hit:
             logfire.info("LLM response retrieved from cache.")

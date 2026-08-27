@@ -2,13 +2,13 @@ import logfire
 from portkey_ai import Portkey, createHeaders, PORTKEY_GATEWAY_URL
 from langchain_openai import ChatOpenAI
 from src.config.config import *
-#cache:Returns the cached response when the exact same request is sent again.
+
 GATEWAY_CONFIG_CACHED = {
     "strategy": {"mode": "fallback"},
     "cache": {"mode": "semantic", "age": 500},
     "retry": {
         "attempts": 2,
-        "on_status_codes": [429, 503]#429 = Too Many Requests,503 = Service Unavailable
+        "on_status_codes": [429, 503]
     },
     "targets": [
         {"override_params": {"model": f"@{GROQ_SLUG}/llama-3.3-70b-versatile"}},
@@ -16,14 +16,7 @@ GATEWAY_CONFIG_CACHED = {
     ]
 }
 
-GATEWAY_CONFIG_NOCACHE = {
-    "strategy": {"mode": "fallback"},
-    "retry": {"attempts": 2, "on_status_codes": [429, 503]},
-    "targets": [
-        {"override_params": {"model": f"@{GROQ_SLUG}/llama-3.3-70b-versatile"}},
-        {"override_params": {"model": f"@{GROQ_SLUG_2}/llama-3.1-8b-instant"}},
-    ]
-}
+
 portkey_client = Portkey(
     api_key=PORTKEY_API_KEY,
     config=GATEWAY_CONFIG_CACHED,
@@ -32,7 +25,7 @@ portkey_client = Portkey(
 
 def get_langchain_llm(feature: str = "rag") -> ChatOpenAI:
     """Returns a LangChain ChatOpenAI instance configured to use Portkey with the specified feature."""
-    config = GATEWAY_CONFIG_NOCACHE if feature == "sql_lookup" else GATEWAY_CONFIG_CACHED
+    config = GATEWAY_CONFIG_CACHED
     return ChatOpenAI(
         api_key=PORTKEY_API_KEY,
         base_url=PORTKEY_GATEWAY_URL,
