@@ -6,7 +6,7 @@ from nemoguardrails import LLMRails, RailsConfig
 from nemoguardrails.actions import action
 from langchain_google_genai import ChatGoogleGenerativeAI
 from src.guardrails.rails import COLANG_MAP
-
+from langchain_groq import ChatGroq
 YAML_MAP = """
 models:
   - type: main
@@ -76,10 +76,10 @@ RAIL_INDICATORS = [
 
 _RAILS_ENGINE: Optional[LLMRails] = None
 
-
-def _build_llm() -> ChatGoogleGenerativeAI:
-    return ChatGoogleGenerativeAI(model="gemini-2.5-flash")
-
+#def _build_llm() -> ChatGoogleGenerativeAI:
+#    return ChatGoogleGenerativeAI(model="gemini-2.5-flash")
+def _build_llm() -> ChatGroq:
+    return ChatGroq(model="openai/gpt-oss-120b", temperature=0.0)
 
 def get_rails_config() -> RailsConfig:
     return RailsConfig.from_content(

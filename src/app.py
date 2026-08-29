@@ -18,7 +18,10 @@ from src.guardrails.actions import initialize_rails, guard
 from src.ingestion.vectorstore import GLOBAL_COLLECTION_NAME
 from src.ingestion.data_loader.document_loader import load_documents
 from src.ingestion.chunking.splitter import create_semantic_chunks
-from src.ingestion.vectorstore import build_vectorstore
+from src.ingestion.vectorstore import build_vectorstore,add_page,list_papers
+
+
+
 from langgraph.checkpoint.postgres.aio import AsyncPostgresSaver
 from src.services.database_services import get_async_db_pool
 from src.agent.graph import create_graph

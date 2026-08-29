@@ -28,6 +28,6 @@ LANGSMITH_API_KEY = os.getenv("LANGSMITH_API_KEY")
 LANGSMITH_PROJECT = os.getenv("LANGSMITH_PROJECT", "entreprise_rag")
 LANGSMITH_ENDPOINT = os.getenv("LANGSMITH_ENDPOINT", "https://api.smith.langchain.com")
 JUDGE_GROQ = os.getenv("JUDGE_GROQ")
-DATA_DIR = os.getenv("RAG_DATA_DIR", os.path.join(os.path.dirname(__file__), "..", "DATA", "True_Data"))
+DATA_DIR = os.getenv("RAG_DATA_DIR", os.path.join(os.path.dirname(__file__), "..", "DATA", "true_Data"))
      
         

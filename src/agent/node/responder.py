@@ -1,54 +1,42 @@
 import logfire
 from src.agent.state import AgentState
-from src.gateway.client import  extract_cache_status,get_langchain_llm
-from src.config.config import *
+from src.agent.utils import format_history
+from src.gateway.client import get_langchain_llm, extract_cache_status
 
 FALLBACK_MESSAGE = "Sorry, I don't have information on that in our catalog."
-def format_history(messages: list) -> str:
-    lines = []
-    for msg in messages[:-1]:
-        role_attr = msg.get("role") if isinstance(msg, dict) else getattr(msg, "type", "")
-        role = "User" if role_attr in ("human", "user") else "Assistant"
-        content = msg.get("content", "") if isinstance(msg, dict) else getattr(msg, "content", "")
-        lines.append(f"{role}: {content}")
-    return "\n".join(lines)
-
-
-
 
 
 def generate_node(state: AgentState) -> dict:
     intent = state.get("intent", "")
-    history_str = format_history(state.get("messages", []))
     messages = state.get("messages", [])
-    last_msg = messages[-1] if messages else {}
-    user_msg = last_msg.get("content", "") if isinstance(last_msg, dict) else getattr(last_msg, "content", "")
+    history_str = format_history(messages)
+    user_msg = messages[-1]["content"] if messages else ""
 
     if intent == "conversational":
         logfire.info("Generating conversational response.")
-        prompt = f"""You are a friendly e-commerce support assistant.
-            Answer using ONLY the conversation history below. Do not invent facts.
-            CONVERSATION HISTORY:
-            {history_str or "No prior history."}
-            LATEST USER MESSAGE:
-            {user_msg}
-            """
+        prompt = f"""You're a friendly e-commerce support assistant.
+Answer using only the conversation history below — don't invent facts.
+
+History:
+{history_str or "No prior history."}
+
+User: {user_msg}
+"""
+
     elif intent == "sql_lookup":
         logfire.info("Generating SQL-grounded response.")
         product = state.get("sql_result", {})
-        prompt = f"""You are an e-commerce support assistant. Answer using ONLY
-                the product data below. If a detail isn't present in this data, say you
-                don't have that information — do not guess.
+        prompt = f"""You're an e-commerce support assistant. Answer using only the product data below.
+If a detail isn't in this data, say you don't have it — don't guess.
 
-                PRODUCT DATA:
-                {product}
+Product data:
+{product}
 
-                CONVERSATION HISTORY:
-                {history_str}
+History:
+{history_str}
 
-                LATEST USER MESSAGE:
-                {user_msg}
-                """
+User: {user_msg}
+"""
 
     elif intent == "retrieval":
         logfire.info("Generating retrieval-grounded response.")
@@ -61,40 +49,37 @@ def generate_node(state: AgentState) -> dict:
                 break
             full_context += chunk + "\n\n"
 
-        prompt = f"""You are an e-commerce support assistant. Answer using information
-                 below. Cite the product_id you used. If the
-                information isn't present here, say you don't have that information —
-                do not guess or use outside knowledge.
-                PRODUCT INFORMATION:
-                {full_context or "No matching documents."}
-                CONVERSATION HISTORY:
-                {history_str}
-                LATEST USER MESSAGE:
-                {user_msg}
-                """
-                    
+        prompt = f"""You're an e-commerce support assistant. Answer using only the information below.
+Mention the product_id you used. If it's not here, say you don't have that info — don't guess.
+
+Product info:
+{full_context or "No matching documents."}
+
+History:
+{history_str}
+
+User: {user_msg}
+"""
+
     else:
         logfire.warning(f"Unknown intent '{intent}'. Using fallback response.")
         return {
-            "response": FALLBACK_MESSAGE,
+            "final_answer": FALLBACK_MESSAGE,
             "status": f"Unknown intent '{intent}'. Fallback response used.",
+            "messages": [{"role": "assistant", "content": FALLBACK_MESSAGE}],
         }
 
     try:
-        llm_response, cache_status = get_langchain_llm().invoke([("user", prompt)])
+        response = get_langchain_llm().invoke([("user", prompt)])
+        llm_response = response.content
+        cache_status = extract_cache_status(response)
         is_cached_hit = cache_status == "HIT"
-        if is_cached_hit:
-            logfire.info("LLM response retrieved from cache.")
-            plan_tag = "Response generated from cache."
-            status_update = "Answer Generated (cache hit)."
-        else:
-            logfire.info("LLM response generated fresh.")
-            plan_tag = "Response generated from LLM."
-            status_update = "Answer Generated (fresh)."
+
+        logfire.info("LLM response from cache." if is_cached_hit else "LLM response generated fresh.")
         return {
             "final_answer": llm_response,
-            "plan": [plan_tag],
-            "status": status_update,
+            "plan": ["Response generated from cache." if is_cached_hit else "Response generated from LLM."],
+            "status": "Answer Generated (cache hit)." if is_cached_hit else "Answer Generated (fresh).",
             "messages": [{"role": "assistant", "content": llm_response}],
         }
     except Exception as e:
@@ -103,5 +88,5 @@ def generate_node(state: AgentState) -> dict:
             "final_answer": FALLBACK_MESSAGE,
             "plan": ["Fallback response used due to error."],
             "status": f"Error during response generation: {e}",
+            "messages": [{"role": "assistant", "content": FALLBACK_MESSAGE}],
         }
-    

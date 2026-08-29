@@ -12,7 +12,7 @@ GATEWAY_CONFIG_CACHED = {
     },
     "targets": [
         {"override_params": {"model": f"@{GROQ_SLUG}/llama-3.3-70b-versatile"}},
-        {"override_params": {"model": f"@{GROQ_SLUG_2}/llama-3.1-8b-instant"}},
+        {"override_params": {"model": f"@{GROQ_SLUG_2}/openai/gpt-oss-20b"}},
     ]
 }
 

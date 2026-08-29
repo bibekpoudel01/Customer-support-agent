@@ -1,7 +1,10 @@
 from src.agent.state import AgentState
 from src.ingestion.vectorstore import search
+
+GLOBAL_DOCS_SESSION = "default_user"  # must match session_id used in _run_ingestion()
+
 def retriever_node(state: AgentState) -> dict:
-    """ retrieves grounded context for the current query."""
+    """Retrieves grounded context for the current query."""
     current_query = state.get("current_query", "")
 
     if current_query == "CONVERSATIONAL":
@@ -9,13 +12,15 @@ def retriever_node(state: AgentState) -> dict:
             "documents": [],
             "status": "Skipped retrieval (conversational intent)",
         }
-    session_id = state.get("session_id", "default_user")
+
     try:
-        results = search(session_id=session_id, query=current_query)
+        results = search(session_id=GLOBAL_DOCS_SESSION, query=current_query)
     except Exception as e:
         return {
             "documents": [],
-            "status": f"Error during retrieval: {e}",}
+            "status": f"Error during retrieval: {e}",
+        }
+
     documents = [
         {"content": doc.page_content, "product_id": doc.metadata.get("product_id"),
          "title": doc.metadata.get("title")}
@@ -24,6 +29,6 @@ def retriever_node(state: AgentState) -> dict:
 
     return {
         "documents": documents,
-        "status": f"Retrieved {len(documents)} documents for session '{session_id}'",
+        "status": f"Retrieved {len(documents)} documents",
         "plan": [f"Intent: {state.get('intent', 'unknown')}", f"Search term: {current_query}"],
     }

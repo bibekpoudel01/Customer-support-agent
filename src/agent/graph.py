@@ -5,7 +5,6 @@ from src.agent.node.retriever import retriever_node
 from src.agent.node.responder import generate_node
 from src.agent.node.sql_lookup import sql_lookup_node
 
-
 graph = StateGraph(State)
 
 graph.add_node("planner", planner_node)
@@ -14,29 +13,20 @@ graph.add_node("sql_lookup", sql_lookup_node)
 graph.add_node("generate", generate_node)
 
 
-def route_Planner(state: State) -> str:
-    current_query = state.get("current_query", "")
-
-    if current_query == "CONVERSATIONAL":
-        return "CONVERSATIONAL"
-    elif current_query == "sql_lookup":
-        return "sql_lookup"
-    else:
-        return "retriever"
+def route_planner(state: State) -> str:
+    return state.get("intent", "retrieval")  # "conversational" | "sql_lookup" | "retrieval"
 
 
 graph.add_edge(START, "planner")
-
 graph.add_conditional_edges(
     "planner",
-    route_Planner,
+    route_planner,
     {
-        "CONVERSATIONAL": "generate",
+        "conversational": "generate",
         "sql_lookup": "sql_lookup",
-        "retriever": "retriever",
+        "retrieval": "retriever",
     },
 )
-
 graph.add_edge("retriever", "generate")
 graph.add_edge("sql_lookup", "generate")
 graph.add_edge("generate", END)

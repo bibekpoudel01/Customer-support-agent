@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, declarative_base
+from sqlalchemy.orm import sessionmaker, declarative_base#
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 DATABASE_URL = os.getenv(
@@ -23,21 +23,14 @@ engine = create_engine(
 SessionLocal = sessionmaker(
     bind=engine,
     autoflush=False,
-    autocommit=False
+    autocommit=False#
 )
 
 Base = declarative_base()
 
 
 def get_session():
-    """
-    FastAPI-style database dependency.
 
-    In LangGraph tools/nodes, you can also use:
-
-        with SessionLocal() as session:
-            ...
-    """
     session = SessionLocal()
     try:
         yield session

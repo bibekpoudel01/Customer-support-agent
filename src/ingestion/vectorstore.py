@@ -12,7 +12,7 @@ from qdrant_client.http.models import Distance, SparseVectorParams, VectorParams
 from langchain_classic.retrievers import ContextualCompressionRetriever
 load_dotenv()
 FlashrankRerank.model_rebuild()
-GLOBAL_COLLECTION_NAME = "customer_support_agent_collection"
+GLOBAL_COLLECTION_NAME = "customer_support_agent_collection1"
 
 EMBEDDING_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
 EMBEDDING_DIM = 384
